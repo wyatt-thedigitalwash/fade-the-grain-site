@@ -1,6 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Scissors, User, SprayCan, Sparkles, Shield, DoorOpen, Heart } from "lucide-react";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
+import { Scissors, User, SprayCan, Sparkles, Shield, DoorOpen, Heart, Star } from "lucide-react";
+import FadeIn from "@/components/FadeIn";
 import CTABanner from "@/components/CTABanner";
 
 const BOOKING_URL =
@@ -54,14 +55,50 @@ const features = [
   },
 ];
 
+const testimonials = [
+  {
+    name: "Leigha Brown",
+    quote:
+      "BEST barbershop in the area! My boys and I love coming to this barbershop. The atmosphere is awesome, the employees and owner are super friendly and welcoming. Pricing is super reasonable. They do a fantastic job on the haircuts.",
+  },
+  {
+    name: "Tony Matamoros",
+    quote:
+      "Fade the Grain Barbershop is top-notch. The service is excellent, the attention to detail is on point, and the atmosphere is welcoming and professional. You can tell they take pride in their work and in making customers feel comfortable.",
+  },
+  {
+    name: "John Filbrun",
+    quote:
+      "Whether you're looking for a traditional haircut or a fade this is a wonderful barber shop to get your haircut because they do all types of cuts!",
+  },
+  {
+    name: "Jenson Miller",
+    quote:
+      "Hands down the best barber shop I have ever been to. The guys there were friendly and professional. I'll definitely be going back.",
+  },
+  {
+    name: "David Bryson",
+    quote:
+      "Walked in for a beard trim without an appointment. Nice waiting area and good barbershop atmosphere. Barney did a phenomenal job trimming and shaping my beard. Will definitely be a repeat customer.",
+  },
+  {
+    name: "Benjamin Thompson",
+    quote:
+      "Preston did a fantastic job with my haircut very friendly I will definitely be back if you're looking for a place to get your haircut this is definitely a great place to go.",
+  },
+];
+
 export default function Home() {
   return (
     <main>
-      {/* Hero */}
+      {/* Hero — no FadeIn, visible immediately */}
       <section className="relative flex min-h-screen items-center justify-center bg-secondary">
-        <ImagePlaceholder
-          label="Hero Image — Barbershop Interior"
-          className="absolute inset-0 h-full w-full rounded-none"
+        <Image
+          src="/assets/wall-mural-barbershop-sign.webp"
+          alt="Fade The Grain Barbershop wall mural with gold lettering"
+          fill
+          className="object-cover"
+          priority
         />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/80 to-primary/60" />
         <div className="relative z-10 px-6 text-center">
@@ -82,13 +119,13 @@ export default function Home() {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded bg-accent px-8 py-3 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors hover:bg-accent-hover"
+              className="rounded bg-accent px-8 py-3 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover"
             >
               Book Now
             </a>
             <Link
               href="/services"
-              className="rounded border-2 border-accent px-8 py-3 font-heading text-sm font-semibold uppercase tracking-wide text-accent transition-colors hover:bg-accent hover:text-primary"
+              className="rounded border-2 border-accent px-8 py-3 font-heading text-sm font-semibold uppercase tracking-wide text-accent transition-colors duration-300 hover:bg-accent hover:text-primary"
             >
               View Services
             </Link>
@@ -99,100 +136,150 @@ export default function Home() {
       {/* Services Preview */}
       <section className="bg-primary px-6 py-20">
         <div className="mx-auto max-w-7xl">
-          <p className="font-heading text-sm uppercase tracking-[0.25em] text-accent">
-            What We Do
-          </p>
-          <h2 className="mt-2 font-heading text-3xl font-bold uppercase text-text-primary md:text-4xl">
-            Our Services
-          </h2>
+          <FadeIn>
+            <p className="font-heading text-sm uppercase tracking-[0.25em] text-accent">
+              What We Do
+            </p>
+            <h2 className="mt-2 font-heading text-3xl font-bold uppercase text-text-primary md:text-4xl">
+              Our Services
+            </h2>
+          </FadeIn>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {services.map((service) => (
-              <div
-                key={service.name}
-                className="rounded-lg bg-secondary p-6"
-              >
-                <service.icon size={32} className="text-accent" />
-                <h3 className="mt-4 font-heading text-lg font-semibold uppercase text-text-primary">
-                  {service.name}
-                </h3>
-                <p className="mt-1 font-heading text-2xl font-bold text-accent">
-                  {service.price}
-                </p>
-                <p className="mt-2 text-sm text-text-secondary">
-                  {service.description}
-                </p>
-              </div>
+            {services.map((service, i) => (
+              <FadeIn key={service.name} delay={i * 100}>
+                <div className="rounded-lg bg-secondary p-6">
+                  <service.icon size={32} className="text-accent" />
+                  <h3 className="mt-4 font-heading text-lg font-semibold uppercase text-text-primary">
+                    {service.name}
+                  </h3>
+                  <p className="mt-1 font-heading text-2xl font-bold text-accent">
+                    {service.price}
+                  </p>
+                  <p className="mt-2 text-sm text-text-secondary">
+                    {service.description}
+                  </p>
+                </div>
+              </FadeIn>
             ))}
           </div>
-          <div className="mt-10 text-center">
-            <Link
-              href="/services"
-              className="font-heading text-sm uppercase tracking-wide text-accent transition-colors hover:text-accent-hover"
-            >
-              View All Services &amp; Pricing &rarr;
-            </Link>
-          </div>
+          <FadeIn>
+            <div className="mt-10 text-center">
+              <Link
+                href="/services"
+                className="font-heading text-sm uppercase tracking-wide text-accent transition-colors duration-300 hover:text-accent-hover"
+              >
+                View All Services &amp; Pricing &rarr;
+              </Link>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* About Preview */}
       <section className="bg-background-light px-6 py-20 text-text-dark">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-2">
-          <ImagePlaceholder
-            label="About Image — Barbershop Interior / Team Photo"
-            className="aspect-[4/3] w-full"
-          />
-          <div>
-            <p className="font-heading text-sm uppercase tracking-[0.25em] text-accent">
-              Who We Are
-            </p>
-            <h2 className="mt-2 font-heading text-3xl font-bold uppercase md:text-4xl">
-              More Than Just a Haircut
-            </h2>
-            <p className="mt-6 leading-relaxed text-text-dark/80">
-              Fade The Grain is a veteran-owned barbershop rooted in the heart
-              of Arcanum, Ohio. With three skilled barbers on staff — Aaron,
-              Preston, and Lauren — we combine modern techniques with timeless
-              tradition to deliver cuts you can be proud of.
-            </p>
-            <p className="mt-4 leading-relaxed text-text-dark/80">
-              This isn&apos;t just a place to get a haircut. It&apos;s your
-              neighborhood shop — where small-town pride meets precision
-              craftsmanship.
-            </p>
-            <Link
-              href="/about"
-              className="mt-6 inline-block font-heading text-sm uppercase tracking-wide text-accent transition-colors hover:text-accent-hover"
-            >
-              Learn More About Us &rarr;
-            </Link>
+        <FadeIn>
+          <div className="mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-2">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded">
+              <Image
+                src="/assets/barbers-at-work-full-shop.webp"
+                alt="Barbers at work inside Fade The Grain Barbershop"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <p className="font-heading text-sm uppercase tracking-[0.25em] text-accent">
+                Who We Are
+              </p>
+              <h2 className="mt-2 font-heading text-3xl font-bold uppercase md:text-4xl">
+                More Than Just a Haircut
+              </h2>
+              <p className="mt-6 leading-relaxed text-text-dark/80">
+                Fade The Grain is a veteran-owned barbershop rooted in the heart
+                of Arcanum, Ohio. With three skilled barbers on staff — Aaron,
+                Preston, and Lauren — we combine modern techniques with timeless
+                tradition to deliver cuts you can be proud of.
+              </p>
+              <p className="mt-4 leading-relaxed text-text-dark/80">
+                This isn&apos;t just a place to get a haircut. It&apos;s your
+                neighborhood shop — where small-town pride meets precision
+                craftsmanship.
+              </p>
+              <Link
+                href="/about"
+                className="mt-6 inline-block font-heading text-sm uppercase tracking-wide text-accent transition-colors duration-300 hover:text-accent-hover"
+              >
+                Learn More About Us &rarr;
+              </Link>
+            </div>
           </div>
-        </div>
+        </FadeIn>
       </section>
 
       {/* Why Choose Us */}
       <section className="bg-secondary px-6 py-20">
         <div className="mx-auto max-w-7xl">
-          <p className="text-center font-heading text-sm uppercase tracking-[0.25em] text-accent">
-            Why Fade The Grain
-          </p>
-          <h2 className="mt-2 text-center font-heading text-3xl font-bold uppercase text-text-primary md:text-4xl">
-            Built Different
-          </h2>
+          <FadeIn>
+            <p className="text-center font-heading text-sm uppercase tracking-[0.25em] text-accent">
+              Why Fade The Grain
+            </p>
+            <h2 className="mt-2 text-center font-heading text-3xl font-bold uppercase text-text-primary md:text-4xl">
+              Built Different
+            </h2>
+          </FadeIn>
           <div className="mt-12 grid gap-8 sm:grid-cols-3">
-            {features.map((feature) => (
-              <div key={feature.title} className="text-center">
-                <feature.icon
-                  size={40}
-                  className="mx-auto text-accent"
-                />
-                <h3 className="mt-4 font-heading text-lg font-semibold uppercase text-text-primary">
-                  {feature.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-text-secondary">
-                  {feature.description}
-                </p>
-              </div>
+            {features.map((feature, i) => (
+              <FadeIn key={feature.title} delay={i * 100}>
+                <div className="text-center">
+                  <feature.icon
+                    size={40}
+                    className="mx-auto text-accent"
+                  />
+                  <h3 className="mt-4 font-heading text-lg font-semibold uppercase text-text-primary">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+                    {feature.description}
+                  </p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="bg-background-light px-6 py-20 text-text-dark">
+        <div className="mx-auto max-w-7xl">
+          <FadeIn>
+            <p className="text-center font-heading text-sm uppercase tracking-[0.25em] text-accent">
+              What People Are Saying
+            </p>
+            <h2 className="mt-2 text-center font-heading text-3xl font-bold uppercase md:text-4xl">
+              Real Reviews
+            </h2>
+          </FadeIn>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {testimonials.map((t, i) => (
+              <FadeIn key={t.name} delay={i * 100}>
+                <div className="flex h-full flex-col rounded-lg bg-white p-6 shadow-sm">
+                  <div className="flex gap-1">
+                    {Array.from({ length: 5 }).map((_, j) => (
+                      <Star
+                        key={j}
+                        size={16}
+                        className="fill-accent text-accent"
+                      />
+                    ))}
+                  </div>
+                  <p className="mt-4 flex-1 text-sm leading-relaxed text-text-dark/80">
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
+                  <p className="mt-4 font-heading text-sm font-semibold uppercase tracking-wide">
+                    {t.name}
+                  </p>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>

@@ -59,7 +59,7 @@ export default function Footer() {
             <p>
               <a
                 href="tel:+19374672236"
-                className="transition-colors hover:text-accent"
+                className="transition-colors duration-300 hover:text-accent"
               >
                 (937) 467-2236
               </a>
@@ -69,7 +69,7 @@ export default function Footer() {
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-block rounded bg-accent px-5 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors hover:bg-accent-hover"
+            className="mt-4 inline-block rounded bg-accent px-5 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover"
           >
             Book Appointment
           </a>
@@ -86,7 +86,7 @@ export default function Footer() {
               href="https://thedigitalwash.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-accent transition-colors hover:text-accent-hover"
+              className="text-accent transition-colors duration-300 hover:text-accent-hover"
             >
               The Digital Wash
             </a>

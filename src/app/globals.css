@@ -19,6 +19,17 @@ body {
   color: var(--color-text-primary);
 }
 
+/* Disable all transitions/animations for reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* Collapse doubled padding between consecutive same-background sections */
 main > section.bg-primary + section.bg-primary,
 main > section.bg-secondary + section.bg-secondary,

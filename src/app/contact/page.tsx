@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { MapPin, Phone, Clock, Calendar } from "lucide-react";
+import FadeIn from "@/components/FadeIn";
 import ContactForm from "./ContactForm";
 
 const BOOKING_URL =
@@ -24,8 +25,8 @@ const hours = [
 export default function ContactPage() {
   return (
     <main>
-      {/* Page Hero */}
-      <section className="bg-secondary px-6 py-20 text-center">
+      {/* Page Hero — no FadeIn */}
+      <section className="bg-secondary px-6 pt-28 pb-20 text-center">
         <div className="mx-auto max-w-3xl">
           <p className="font-heading text-sm uppercase tracking-[0.25em] text-accent">
             Contact
@@ -43,112 +44,120 @@ export default function ContactPage() {
       <section className="bg-background-light px-6 py-20 text-text-dark">
         <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
           {/* Left — Details */}
-          <div className="space-y-8">
-            <div className="flex gap-4">
-              <MapPin size={24} className="shrink-0 text-accent" />
-              <div>
-                <p className="font-heading font-semibold uppercase">Address</p>
-                <a
-                  href="https://maps.google.com/?q=7+N+Sycamore+St+Arcanum+OH+45304"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-text-dark/80 underline transition-colors hover:text-accent"
-                >
-                  7 N Sycamore St, Arcanum, OH 45304
-                </a>
+          <FadeIn>
+            <div className="space-y-8">
+              <div className="flex gap-4">
+                <MapPin size={24} className="shrink-0 text-accent" />
+                <div>
+                  <p className="font-heading font-semibold uppercase">Address</p>
+                  <a
+                    href="https://maps.google.com/?q=7+N+Sycamore+St+Arcanum+OH+45304"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-text-dark/80 underline transition-colors duration-300 hover:text-accent"
+                  >
+                    7 N Sycamore St, Arcanum, OH 45304
+                  </a>
+                </div>
               </div>
-            </div>
 
-            <div className="flex gap-4">
-              <Phone size={24} className="shrink-0 text-accent" />
-              <div>
-                <p className="font-heading font-semibold uppercase">Phone</p>
-                <a
-                  href="tel:+19374672236"
-                  className="text-sm text-text-dark/80 transition-colors hover:text-accent"
-                >
-                  (937) 467-2236
-                </a>
+              <div className="flex gap-4">
+                <Phone size={24} className="shrink-0 text-accent" />
+                <div>
+                  <p className="font-heading font-semibold uppercase">Phone</p>
+                  <a
+                    href="tel:+19374672236"
+                    className="text-sm text-text-dark/80 transition-colors duration-300 hover:text-accent"
+                  >
+                    (937) 467-2236
+                  </a>
+                </div>
               </div>
-            </div>
 
-            <div className="flex gap-4">
-              <Clock size={24} className="shrink-0 text-accent" />
-              <div>
-                <p className="font-heading font-semibold uppercase">Hours</p>
-                <ul className="mt-1 space-y-1 text-sm text-text-dark/80">
-                  {hours.map((h) => (
-                    <li key={h.day} className="flex gap-4">
-                      <span className="w-10 font-medium">{h.day}</span>
-                      <span>{h.time}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div className="flex gap-4">
+                <Clock size={24} className="shrink-0 text-accent" />
+                <div>
+                  <p className="font-heading font-semibold uppercase">Hours</p>
+                  <ul className="mt-1 space-y-1 text-sm text-text-dark/80">
+                    {hours.map((h) => (
+                      <li key={h.day} className="flex gap-4">
+                        <span className="w-10 font-medium">{h.day}</span>
+                        <span>{h.time}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-            </div>
 
-            <div className="flex gap-4">
-              <Calendar size={24} className="shrink-0 text-accent" />
-              <div>
-                <p className="font-heading font-semibold uppercase">
-                  Book Online
-                </p>
-                <a
-                  href={BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-text-dark/80 underline transition-colors hover:text-accent"
-                >
-                  Schedule on Booksy
-                </a>
+              <div className="flex gap-4">
+                <Calendar size={24} className="shrink-0 text-accent" />
+                <div>
+                  <p className="font-heading font-semibold uppercase">
+                    Book Online
+                  </p>
+                  <a
+                    href={BOOKING_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-text-dark/80 underline transition-colors duration-300 hover:text-accent"
+                  >
+                    Schedule on Booksy
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
+          </FadeIn>
 
           {/* Right — Form */}
-          <ContactForm />
+          <FadeIn delay={100}>
+            <ContactForm />
+          </FadeIn>
         </div>
       </section>
 
       {/* Map */}
       <section className="bg-primary px-6 py-20">
-        <div className="mx-auto max-w-7xl overflow-hidden rounded-lg border border-white/10">
-          <iframe
-            title="Fade The Grain Barbershop Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3064.5!2d-84.5564!3d39.9903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z7+N+Sycamore+St%2C+Arcanum%2C+OH+45304!5e0!3m2!1sen!2sus!4v1"
-            width="100%"
-            height="400"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </div>
+        <FadeIn>
+          <div className="mx-auto max-w-7xl overflow-hidden rounded-lg border border-white/10">
+            <iframe
+              title="Fade The Grain Barbershop Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3064.5!2d-84.5564!3d39.9903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z7+N+Sycamore+St%2C+Arcanum%2C+OH+45304!5e0!3m2!1sen!2sus!4v1"
+              width="100%"
+              height="400"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </FadeIn>
       </section>
 
       {/* CTA */}
       <section className="bg-accent px-6 py-16 text-center">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="font-heading text-3xl font-bold uppercase text-primary md:text-4xl">
-            Walk-Ins Always Welcome
-          </h2>
-          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded bg-primary px-8 py-3 font-heading text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-secondary"
-            >
-              Book Online
-            </a>
-            <a
-              href="tel:+19374672236"
-              className="rounded border-2 border-primary px-8 py-3 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors hover:bg-primary hover:text-white"
-            >
-              Call Now
-            </a>
+        <FadeIn>
+          <div className="mx-auto max-w-3xl">
+            <h2 className="font-heading text-3xl font-bold uppercase text-primary md:text-4xl">
+              Walk-Ins Always Welcome
+            </h2>
+            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded bg-primary px-8 py-3 font-heading text-sm font-semibold uppercase tracking-wide text-white transition-colors duration-300 hover:bg-secondary"
+              >
+                Book Online
+              </a>
+              <a
+                href="tel:+19374672236"
+                className="rounded border-2 border-primary px-8 py-3 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-primary hover:text-white"
+              >
+                Call Now
+              </a>
+            </div>
           </div>
-        </div>
+        </FadeIn>
       </section>
     </main>
   );

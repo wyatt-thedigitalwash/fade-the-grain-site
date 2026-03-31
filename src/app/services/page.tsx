@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Shield } from "lucide-react";
+import FadeIn from "@/components/FadeIn";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import CTABanner from "@/components/CTABanner";
 
@@ -86,7 +87,7 @@ function ServiceGroup({
         href={BOOKING_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-6 inline-block rounded bg-accent px-6 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors hover:bg-accent-hover"
+        className="mt-6 inline-block rounded bg-accent px-6 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover"
       >
         Book Now
       </a>
@@ -97,8 +98,8 @@ function ServiceGroup({
 export default function ServicesPage() {
   return (
     <main>
-      {/* Page Hero */}
-      <section className="bg-secondary px-6 py-20 text-center">
+      {/* Page Hero — no FadeIn */}
+      <section className="bg-secondary px-6 pt-28 pb-20 text-center">
         <div className="mx-auto max-w-3xl">
           <p className="font-heading text-sm uppercase tracking-[0.25em] text-accent">
             Services
@@ -115,50 +116,55 @@ export default function ServicesPage() {
       {/* Service Menu */}
       <section className="bg-background-light px-6 py-20 text-text-dark">
         <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
-          <ServiceGroup title="Haircuts" services={haircuts} />
-          <ServiceGroup title="Beard & Shave" services={beardShave} />
-          <div className="md:col-span-2">
+          <FadeIn>
+            <ServiceGroup title="Haircuts" services={haircuts} />
+          </FadeIn>
+          <FadeIn delay={100}>
+            <ServiceGroup title="Beard & Shave" services={beardShave} />
+          </FadeIn>
+          <FadeIn delay={200} className="md:col-span-2">
             <ServiceGroup title="Discounts" services={discounts} badge />
-          </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Book by Barber */}
       <section className="bg-primary px-6 py-20">
         <div className="mx-auto max-w-7xl">
-          <p className="text-center font-heading text-sm uppercase tracking-[0.25em] text-accent">
-            Choose Your Barber
-          </p>
-          <h2 className="mt-2 text-center font-heading text-3xl font-bold uppercase text-text-primary md:text-4xl">
-            Book by Barber
-          </h2>
+          <FadeIn>
+            <p className="text-center font-heading text-sm uppercase tracking-[0.25em] text-accent">
+              Choose Your Barber
+            </p>
+            <h2 className="mt-2 text-center font-heading text-3xl font-bold uppercase text-text-primary md:text-4xl">
+              Book by Barber
+            </h2>
+          </FadeIn>
           <div className="mt-12 grid gap-8 sm:grid-cols-3">
-            {barbers.map((name) => (
-              <div
-                key={name}
-                className="overflow-hidden rounded-lg bg-secondary text-center"
-              >
-                <ImagePlaceholder
-                  label={`Portrait — ${name}`}
-                  className="aspect-[3/4] w-full rounded-none"
-                />
-                <div className="p-6">
-                  <h3 className="font-heading text-xl font-semibold uppercase text-text-primary">
-                    {name}
-                  </h3>
-                  <p className="mt-1 text-sm text-text-secondary">
-                    $20 &middot; 30 min
-                  </p>
-                  <a
-                    href={BOOKING_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 inline-block rounded bg-accent px-6 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors hover:bg-accent-hover"
-                  >
-                    Book with {name}
-                  </a>
+            {barbers.map((name, i) => (
+              <FadeIn key={name} delay={i * 100}>
+                <div className="overflow-hidden rounded-lg bg-secondary text-center">
+                  <ImagePlaceholder
+                    label={`Portrait — ${name}`}
+                    className="aspect-[3/4] w-full rounded-none"
+                  />
+                  <div className="p-6">
+                    <h3 className="font-heading text-xl font-semibold uppercase text-text-primary">
+                      {name}
+                    </h3>
+                    <p className="mt-1 text-sm text-text-secondary">
+                      $20 &middot; 30 min
+                    </p>
+                    <a
+                      href={BOOKING_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 inline-block rounded bg-accent px-6 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover"
+                    >
+                      Book with {name}
+                    </a>
+                  </div>
                 </div>
-              </div>
+              </FadeIn>
             ))}
           </div>
         </div>

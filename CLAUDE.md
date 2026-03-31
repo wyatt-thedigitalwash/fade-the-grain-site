@@ -25,7 +25,7 @@ public/           — static assets (images, fonts, favicon)
 - Every page needs unique meta title and description
 
 ## Section Spacing Rule
-When building pages with multiple <section> elements inside <main>, consecutive sections that share the same visual background will double-stack their vertical padding and create massive gaps. To prevent this, globals.css includes a rule that removes top padding from any non-dark section that follows another non-dark section. Dark-background sections (bg-primary) are excluded so transitions between light and dark backgrounds keep their breathing room. If any specific spot looks too tight after this rule, fix it with an explicit padding class on that individual section — don't remove the global rule.
+When building pages with multiple <section> elements inside <main>, consecutive sections that share the same visual background will double-stack their vertical padding and create massive gaps. To prevent this, globals.css includes rules that remove top padding only when two consecutive sections share the exact same background class (e.g., two bg-primary sections in a row, or two bg-secondary sections in a row). Transitions between different backgrounds always keep their full padding. If any specific spot looks too tight after this rule, fix it with an explicit padding class on that individual section — don't remove the global rule.
 
 ## Code Rules
 - No "use client" unless the component needs interactivity (state, effects, event handlers)
