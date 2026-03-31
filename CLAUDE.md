@@ -17,8 +17,8 @@ src/lib/          — utilities, constants, types
 public/           — static assets (images, fonts, favicon)
 
 ## Design System
-- Colors: defined in SITE.md
-- Font: [primary font] + [secondary font if applicable]
+- Colors: defined in SITE.md and globals.css (@theme)
+- Font: Oswald (headings) + Inter (body)
 - All pages must be mobile responsive (breakpoint: 768px)
 - Use semantic HTML (nav, main, section, footer, article)
 - Every image needs alt text
