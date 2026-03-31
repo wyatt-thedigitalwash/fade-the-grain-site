@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #2C1810;
-  --color-secondary: #3D2B1F;
+  --color-primary: #1A1210;
+  --color-secondary: #261C17;
   --color-accent: #C8962E;
   --color-accent-hover: #B8860B;
   --color-background-light: #F5EDE0;
@@ -20,6 +20,9 @@ body {
 }
 
 /* Collapse doubled padding between consecutive same-background sections */
-main > section:not(.bg-primary) + section:not(.bg-primary) {
+main > section.bg-primary + section.bg-primary,
+main > section.bg-secondary + section.bg-secondary,
+main > section.bg-background-light + section.bg-background-light,
+main > section.bg-accent + section.bg-accent {
   padding-top: 0;
 }

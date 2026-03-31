@@ -12,8 +12,8 @@
 - Veteran-owned: Yes
 
 ## Brand
-- Primary Color: #2C1810 (deep espresso brown — main backgrounds, navbar, footer)
-- Secondary Color: #3D2B1F (dark leather brown — card backgrounds, alternate sections)
+- Primary Color: #1A1210 (near-black with warm brown undertone — navbar, footer, main backgrounds)
+- Secondary Color: #261C17 (very dark brown, just barely lighter — cards, alternate sections)
 - Accent Color: #C8962E (warm gold — CTAs, highlights, hover states, borders)
 - Accent Hover: #B8860B (darker gold — button hover states)
 - Background Light: #F5EDE0 (warm parchment/cream — light section backgrounds)
