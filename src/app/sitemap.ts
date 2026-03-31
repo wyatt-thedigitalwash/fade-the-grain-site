@@ -4,7 +4,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://DOMAIN.com';
 
   return [
-    { url: baseUrl, changeFrequency: 'weekly', priority: 1.0 },
+    { url: baseUrl, changeFrequency: 'weekly' as const, priority: 1.0 },
     // Add pages as they're built
   ].map(page => ({ ...page, lastModified: new Date() }));
 }
