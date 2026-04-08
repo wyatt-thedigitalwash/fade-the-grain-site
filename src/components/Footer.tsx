@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const BOOKING_URL =
@@ -19,11 +20,14 @@ export default function Footer() {
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-3">
         {/* Column 1 — Brand */}
         <div>
-          <Link
-            href="/"
-            className="font-heading text-xl font-bold uppercase tracking-wider text-accent"
-          >
-            Fade The Grain
+          <Link href="/" className="block">
+            <Image
+              src="/branding/fade-the-grain-logo-white.webp"
+              alt="Fade The Grain Barbershop"
+              width={80}
+              height={80}
+              className="h-16 w-16"
+            />
           </Link>
           <p className="mt-4 text-sm leading-relaxed text-text-primary/70">
             Proudly veteran-owned and community-driven, Fade the Grain brings a

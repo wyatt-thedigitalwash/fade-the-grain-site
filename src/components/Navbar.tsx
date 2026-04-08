@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
@@ -45,11 +46,15 @@ export default function Navbar() {
       className={`fixed top-0 z-50 w-full transition-[background-color,box-shadow] duration-300 ease-out ${navBg}`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link
-          href="/"
-          className="font-heading text-xl font-bold uppercase tracking-wider text-accent"
-        >
-          Fade The Grain
+        <Link href="/" className="block">
+          <Image
+            src="/branding/fade-the-grain-logo-gold.webp"
+            alt="Fade The Grain Barbershop"
+            width={48}
+            height={48}
+            className="h-10 w-10 md:h-12 md:w-12"
+            priority
+          />
         </Link>
 
         {/* Desktop links */}
@@ -103,12 +108,14 @@ export default function Navbar() {
         aria-hidden={!mobileOpen}
       >
         <div className="flex items-center justify-between">
-          <Link
-            href="/"
-            onClick={() => setMobileOpen(false)}
-            className="font-heading text-xl font-bold uppercase tracking-wider text-accent"
-          >
-            Fade The Grain
+          <Link href="/" onClick={() => setMobileOpen(false)} className="block">
+            <Image
+              src="/branding/fade-the-grain-logo-gold.webp"
+              alt="Fade The Grain Barbershop"
+              width={48}
+              height={48}
+              className="h-10 w-10"
+            />
           </Link>
           <button
             onClick={() => setMobileOpen(false)}
