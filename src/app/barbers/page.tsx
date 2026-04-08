@@ -40,7 +40,7 @@ const barbers = [
 export default function BarbersPage() {
   return (
     <main>
-      <section className="bg-secondary px-6 pt-28 pb-20 text-center">
+      <section className="bg-secondary px-6 pt-36 pb-24 md:pb-32 text-center">
         <div className="mx-auto max-w-3xl">
           <h1 className="font-heading text-4xl font-bold uppercase text-text-primary md:text-5xl">
             Our Barbers
