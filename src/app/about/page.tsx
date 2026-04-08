@@ -32,7 +32,7 @@ const values = [
 export default function AboutPage() {
   return (
     <main>
-      <section className="bg-secondary px-6 pt-36 pb-24 md:pb-32 text-center">
+      <section className="bg-secondary px-6 pt-40 pb-20 md:pt-48 md:pb-24 text-center">
         <div className="mx-auto max-w-3xl">
           <h1 className="font-heading text-4xl font-bold uppercase text-text-primary md:text-5xl">
             Our Story
