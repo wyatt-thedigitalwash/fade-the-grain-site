@@ -133,7 +133,7 @@ export default function Home() {
             Timeless Tradition.
           </h1>
           <Divider variant="line" />
-          <p className="mx-auto max-w-xl text-lg text-text-secondary">
+          <p className="mx-auto max-w-xl text-lg text-text-primary/80">
             Proudly veteran-owned and community-driven, Fade the Grain brings a
             modern edge to a timeless craft.
           </p>
@@ -160,13 +160,10 @@ export default function Home() {
       <section className="bg-primary bg-parchment-dark px-6 py-20">
         <div className="relative mx-auto max-w-7xl">
           <FadeIn>
-            <p className="font-accent text-base italic tracking-wider text-accent">
-              What We Do
-            </p>
-            <Divider variant="ornament" className="justify-start py-2" />
-            <h2 className="mt-2 font-heading text-3xl font-bold uppercase text-text-primary md:text-4xl">
+            <h2 className="font-heading text-3xl font-bold uppercase text-text-primary md:text-4xl">
               Our Services
             </h2>
+            <Divider variant="ornament" className="justify-start py-2" />
           </FadeIn>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((service, i) => (
@@ -179,7 +176,7 @@ export default function Home() {
                   <p className="mt-1 font-heading text-2xl font-bold text-accent">
                     {service.price}
                   </p>
-                  <p className="mt-2 text-sm text-text-secondary">
+                  <p className="mt-2 text-sm text-text-primary/70">
                     {service.description}
                   </p>
                 </div>
@@ -203,13 +200,10 @@ export default function Home() {
       <section className="bg-secondary px-6 py-20">
         <div className="mx-auto max-w-7xl">
           <FadeIn>
-            <p className="text-center font-accent text-base italic tracking-wider text-accent">
-              The Team
-            </p>
-            <Divider variant="line" />
-            <h2 className="mt-2 text-center font-heading text-3xl font-bold uppercase text-text-primary md:text-4xl">
+            <h2 className="text-center font-heading text-3xl font-bold uppercase text-text-primary md:text-4xl">
               Meet Your Barbers
             </h2>
+            <Divider variant="line" />
           </FadeIn>
           <div className="mt-12 grid gap-8 sm:grid-cols-3">
             {barbers.map((name, i) => (
@@ -276,13 +270,10 @@ export default function Home() {
               />
             </div>
             <div>
-              <p className="font-accent text-base italic tracking-wider text-accent">
-                Who We Are
-              </p>
-              <Divider variant="ornament" className="justify-start py-2" />
-              <h2 className="mt-2 font-heading text-3xl font-bold uppercase md:text-4xl">
+              <h2 className="font-heading text-3xl font-bold uppercase md:text-4xl">
                 More Than Just a Haircut
               </h2>
+              <Divider variant="ornament" className="justify-start py-2" />
               <p className="mt-6 leading-relaxed text-text-dark/80">
                 Fade The Grain is a veteran-owned barbershop rooted in the heart
                 of Arcanum, Ohio. With three skilled barbers on staff — Aaron,
@@ -309,13 +300,10 @@ export default function Home() {
       <section className="bg-primary bg-parchment-dark px-6 py-20">
         <div className="relative mx-auto max-w-7xl">
           <FadeIn>
-            <p className="text-center font-accent text-base italic tracking-wider text-accent">
-              Why Fade The Grain
-            </p>
-            <Divider variant="stars" />
             <h2 className="text-center font-heading text-3xl font-bold uppercase text-text-primary md:text-4xl">
               Built Different
             </h2>
+            <Divider variant="stars" />
           </FadeIn>
           <div className="mt-12 grid gap-8 sm:grid-cols-3">
             {features.map((feature, i) => (
@@ -325,7 +313,7 @@ export default function Home() {
                   <h3 className="mt-4 font-heading text-lg font-semibold uppercase text-text-primary">
                     {feature.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+                  <p className="mt-2 text-sm leading-relaxed text-text-primary/70">
                     {feature.description}
                   </p>
                 </div>
@@ -339,13 +327,10 @@ export default function Home() {
       <section className="bg-parchment px-6 py-20 text-text-dark">
         <div className="relative mx-auto max-w-7xl">
           <FadeIn>
-            <p className="text-center font-accent text-base italic tracking-wider text-accent">
-              What People Are Saying
-            </p>
-            <Divider variant="line" />
             <h2 className="text-center font-heading text-3xl font-bold uppercase md:text-4xl">
               Real Reviews
             </h2>
+            <Divider variant="line" />
           </FadeIn>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {testimonials.map((t, i) => (
@@ -373,13 +358,10 @@ export default function Home() {
       <section className="bg-secondary px-6 py-20">
         <div className="mx-auto max-w-7xl">
           <FadeIn>
-            <p className="text-center font-accent text-base italic tracking-wider text-accent">
-              See The Results
-            </p>
-            <Divider variant="ornament" />
             <h2 className="text-center font-heading text-3xl font-bold uppercase text-text-primary md:text-4xl">
               Fresh Out the Chair
             </h2>
+            <Divider variant="ornament" />
           </FadeIn>
           <div className="mt-12 grid gap-4 grid-cols-3">
             {showcaseImages.map((img, i) => (

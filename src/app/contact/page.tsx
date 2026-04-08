@@ -28,14 +28,11 @@ export default function ContactPage() {
     <main>
       <section className="bg-secondary px-6 pt-28 pb-20 text-center">
         <div className="mx-auto max-w-3xl">
-          <p className="font-accent text-base italic tracking-wider text-accent">
-            Contact
-          </p>
-          <h1 className="mt-2 font-heading text-4xl font-bold uppercase text-text-primary md:text-5xl">
+          <h1 className="font-heading text-4xl font-bold uppercase text-text-primary md:text-5xl">
             Get In Touch
           </h1>
           <Divider variant="line" />
-          <p className="text-lg text-text-secondary">
+          <p className="text-lg text-text-primary/80">
             Stop by, give us a call, or book online.
           </p>
         </div>

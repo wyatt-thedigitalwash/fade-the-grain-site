@@ -104,14 +104,11 @@ export default function ServicesPage() {
     <main>
       <section className="bg-secondary px-6 pt-28 pb-20 text-center">
         <div className="mx-auto max-w-3xl">
-          <p className="font-accent text-base italic tracking-wider text-accent">
-            Services
-          </p>
-          <h1 className="mt-2 font-heading text-4xl font-bold uppercase text-text-primary md:text-5xl">
+          <h1 className="font-heading text-4xl font-bold uppercase text-text-primary md:text-5xl">
             Services &amp; Pricing
           </h1>
           <Divider variant="line" />
-          <p className="text-lg text-text-secondary">
+          <p className="text-lg text-text-primary/80">
             Quality grooming at honest prices.
           </p>
         </div>
@@ -134,13 +131,10 @@ export default function ServicesPage() {
       <section className="bg-primary bg-parchment-dark px-6 py-20">
         <div className="relative mx-auto max-w-7xl">
           <FadeIn>
-            <p className="text-center font-accent text-base italic tracking-wider text-accent">
-              Choose Your Barber
-            </p>
-            <Divider variant="ornament" />
             <h2 className="text-center font-heading text-3xl font-bold uppercase text-text-primary md:text-4xl">
               Book by Barber
             </h2>
+            <Divider variant="ornament" />
           </FadeIn>
           <div className="mt-12 grid gap-8 sm:grid-cols-3">
             {barbers.map((name, i) => (
@@ -165,7 +159,7 @@ export default function ServicesPage() {
                     <h3 className="font-heading text-xl font-semibold uppercase text-text-primary">
                       {name}
                     </h3>
-                    <p className="mt-1 text-sm text-text-secondary">
+                    <p className="mt-1 text-sm text-text-primary/60">
                       $20 &middot; 30 min
                     </p>
                     <a

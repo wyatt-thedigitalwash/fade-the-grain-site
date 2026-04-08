@@ -36,14 +36,11 @@ export default function GalleryPage() {
     <main>
       <section className="bg-secondary px-6 pt-28 pb-20 text-center">
         <div className="mx-auto max-w-3xl">
-          <p className="font-accent text-base italic tracking-wider text-accent">
-            Gallery
-          </p>
-          <h1 className="mt-2 font-heading text-4xl font-bold uppercase text-text-primary md:text-5xl">
+          <h1 className="font-heading text-4xl font-bold uppercase text-text-primary md:text-5xl">
             Our Work &amp; Our Shop
           </h1>
           <Divider variant="stars" />
-          <p className="text-lg text-text-secondary">
+          <p className="text-lg text-text-primary/80">
             See what we&apos;re all about.
           </p>
         </div>
@@ -52,13 +49,10 @@ export default function GalleryPage() {
       <section className="bg-parchment px-6 py-20 text-text-dark">
         <div className="relative mx-auto max-w-7xl">
           <FadeIn>
-            <p className="font-accent text-base italic tracking-wider text-accent">
-              The Shop
-            </p>
-            <Divider variant="ornament" className="justify-start py-2" />
-            <h2 className="mt-2 font-heading text-3xl font-bold uppercase md:text-4xl">
+            <h2 className="font-heading text-3xl font-bold uppercase md:text-4xl">
               Inside Fade The Grain
             </h2>
+            <Divider variant="ornament" className="justify-start py-2" />
           </FadeIn>
           <div className="mt-12 grid gap-4 grid-cols-2 lg:grid-cols-3">
             {shopImages.map((img, i) => (
@@ -80,13 +74,10 @@ export default function GalleryPage() {
       <section className="bg-primary bg-parchment-dark px-6 py-20">
         <div className="relative mx-auto max-w-7xl">
           <FadeIn>
-            <p className="font-accent text-base italic tracking-wider text-accent">
-              Our Work
-            </p>
-            <Divider variant="ornament" className="justify-start py-2" />
-            <h2 className="mt-2 font-heading text-3xl font-bold uppercase text-text-primary md:text-4xl">
+            <h2 className="font-heading text-3xl font-bold uppercase text-text-primary md:text-4xl">
               Fresh Cuts &amp; Clean Fades
             </h2>
+            <Divider variant="ornament" className="justify-start py-2" />
           </FadeIn>
           <div className="mt-12 grid gap-4 grid-cols-2 lg:grid-cols-3">
             {workImages.map((img, i) => (

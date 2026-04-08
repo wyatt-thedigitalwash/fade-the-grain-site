@@ -34,14 +34,11 @@ export default function AboutPage() {
     <main>
       <section className="bg-secondary px-6 pt-28 pb-20 text-center">
         <div className="mx-auto max-w-3xl">
-          <p className="font-accent text-base italic tracking-wider text-accent">
-            About Us
-          </p>
-          <h1 className="mt-2 font-heading text-4xl font-bold uppercase text-text-primary md:text-5xl">
+          <h1 className="font-heading text-4xl font-bold uppercase text-text-primary md:text-5xl">
             Our Story
           </h1>
           <Divider variant="line" />
-          <p className="text-lg text-text-secondary">
+          <p className="text-lg text-text-primary/80">
             Proudly serving the Arcanum community with precision and pride.
           </p>
         </div>
@@ -85,13 +82,10 @@ export default function AboutPage() {
       <section className="bg-primary bg-parchment-dark px-6 py-20">
         <div className="relative mx-auto max-w-7xl">
           <FadeIn>
-            <p className="text-center font-accent text-base italic tracking-wider text-accent">
-              The Team
-            </p>
-            <Divider variant="ornament" />
             <h2 className="text-center font-heading text-3xl font-bold uppercase text-text-primary md:text-4xl">
               Meet Your Barbers
             </h2>
+            <Divider variant="ornament" />
           </FadeIn>
           <div className="mt-12 grid gap-8 sm:grid-cols-3">
             {barbers.map((name, i) => (
@@ -141,7 +135,7 @@ export default function AboutPage() {
                 <h3 className="mt-4 font-heading text-lg font-semibold uppercase text-text-primary">
                   {value.title}
                 </h3>
-                <p className="mt-2 text-sm text-text-secondary">
+                <p className="mt-2 text-sm text-text-primary/70">
                   {value.description}
                 </p>
               </div>

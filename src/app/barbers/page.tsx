@@ -42,14 +42,11 @@ export default function BarbersPage() {
     <main>
       <section className="bg-secondary px-6 pt-28 pb-20 text-center">
         <div className="mx-auto max-w-3xl">
-          <p className="font-accent text-base italic tracking-wider text-accent">
-            The Team
-          </p>
-          <h1 className="mt-2 font-heading text-4xl font-bold uppercase text-text-primary md:text-5xl">
+          <h1 className="font-heading text-4xl font-bold uppercase text-text-primary md:text-5xl">
             Our Barbers
           </h1>
           <Divider variant="ornament" />
-          <p className="text-lg text-text-secondary">
+          <p className="text-lg text-text-primary/80">
             Three barbers. One standard — precision.
           </p>
         </div>
@@ -103,13 +100,10 @@ export default function BarbersPage() {
       <section className="bg-primary bg-parchment-dark px-6 py-20">
         <div className="relative mx-auto max-w-7xl">
           <FadeIn>
-            <p className="text-center font-accent text-base italic tracking-wider text-accent">
-              Quick Book
-            </p>
-            <Divider variant="stars" />
             <h2 className="text-center font-heading text-3xl font-bold uppercase text-text-primary md:text-4xl">
               Choose Your Barber
             </h2>
+            <Divider variant="stars" />
           </FadeIn>
           <div className="mt-12 grid gap-6 sm:grid-cols-3">
             {barbers.map((barber, i) => (
@@ -123,10 +117,10 @@ export default function BarbersPage() {
                   <h3 className="font-heading text-xl font-semibold uppercase text-text-primary">
                     {barber.name}
                   </h3>
-                  <p className="mt-1 text-sm text-text-secondary">
+                  <p className="mt-1 text-sm text-text-primary/60">
                     {barber.role}
                   </p>
-                  <p className="mt-1 text-sm text-text-secondary">
+                  <p className="mt-1 text-sm text-text-primary/60">
                     $20 &middot; 30 min
                   </p>
                   <span className="mt-4 inline-block rounded bg-accent px-6 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover">
