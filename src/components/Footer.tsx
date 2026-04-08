@@ -25,7 +25,7 @@ export default function Footer() {
           >
             Fade The Grain
           </Link>
-          <p className="mt-4 text-sm leading-relaxed text-text-secondary">
+          <p className="mt-4 text-sm leading-relaxed text-text-primary/70">
             Proudly veteran-owned and community-driven, Fade the Grain brings a
             modern edge to a timeless craft.
           </p>
@@ -39,7 +39,7 @@ export default function Footer() {
           <h3 className="font-heading text-lg font-semibold uppercase tracking-wide text-text-primary">
             Hours
           </h3>
-          <ul className="mt-4 space-y-1 text-sm text-text-secondary">
+          <ul className="mt-4 space-y-1 text-sm text-text-primary/70">
             {hours.map((h) => (
               <li key={h.day} className="flex justify-between">
                 <span>{h.day}</span>
@@ -54,7 +54,7 @@ export default function Footer() {
           <h3 className="font-heading text-lg font-semibold uppercase tracking-wide text-text-primary">
             Contact
           </h3>
-          <address className="mt-4 space-y-2 text-sm not-italic text-text-secondary">
+          <address className="mt-4 space-y-2 text-sm not-italic text-text-primary/70">
             <p>7 N Sycamore St, Arcanum, OH 45304</p>
             <p>
               <a
