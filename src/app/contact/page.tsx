@@ -26,7 +26,7 @@ const hours = [
 export default function ContactPage() {
   return (
     <main>
-      <section className="bg-secondary px-6 pt-40 pb-20 md:pt-48 md:pb-24 text-center">
+      <section className="bg-secondary flex min-h-[45vh] items-center justify-center px-6 pt-20 text-center">
         <div className="mx-auto max-w-3xl">
           <h1 className="font-heading text-4xl font-bold uppercase text-text-primary md:text-5xl">
             Get In Touch
