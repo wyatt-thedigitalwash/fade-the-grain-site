@@ -29,8 +29,8 @@ export default function Footer() {
             Proudly veteran-owned and community-driven, Fade the Grain brings a
             modern edge to a timeless craft.
           </p>
-          <span className="mt-4 inline-block rounded border border-accent px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
-            Veteran-Owned
+          <span className="mt-4 inline-flex items-center gap-1.5 rounded border border-accent px-3 py-1 font-heading text-xs font-semibold uppercase tracking-wider text-accent">
+            <span>&#9733;</span> Veteran-Owned
           </span>
         </div>
 

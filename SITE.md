@@ -20,8 +20,10 @@
 - Text Primary: #F5EDE0 (warm cream — text on dark backgrounds)
 - Text Secondary: #A89882 (muted tan — subtext on dark backgrounds)
 - Text Dark: #2C1810 (espresso — text on light backgrounds)
+- Accent Red: #8B2500 (deep vintage red — badges, banners, special callouts)
 - Primary Font: "Oswald" (headings — bold, uppercase barbershop feel)
 - Secondary Font: "Inter" (body text — clean, modern, readable)
+- Accent Font: "Playfair Display" (script/accent — taglines, labels, decorative text)
 
 ## Tagline
 "Proudly veteran-owned and community-driven, Fade the Grain brings a modern edge to a timeless craft."
@@ -87,3 +89,6 @@ All Services:
 - Gallery page has two sections: "The Shop" and "Our Work" (cuts, before/afters)
 - Discounts for veterans/1st responders ($16) and seniors 65+ ($16)
 - Three barbers on staff: Aaron, Preston, Lauren
+- Site aesthetic: Vintage Americana / classic barbershop poster style
+- Uses parchment textures, decorative dividers, and script accent font for vintage feel
+- Veteran Owned badge styled as a stamp/seal element

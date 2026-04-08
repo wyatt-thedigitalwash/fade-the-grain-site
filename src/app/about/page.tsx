@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Target, Clock, Users } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
+import Divider from "@/components/Divider";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import CTABanner from "@/components/CTABanner";
 
@@ -16,46 +17,39 @@ export const metadata: Metadata = {
 
 const barbers = ["Aaron", "Preston", "Lauren"];
 
+const barberImages: Record<string, string> = {
+  Aaron: "/assets/barber-giving-boy-haircut.webp",
+  Preston: "/assets/precision-clipper-cut-action.webp",
+  Lauren: "/assets/lauren-barber.webp",
+};
+
 const values = [
-  {
-    icon: Target,
-    title: "Precision",
-    description: "Every cut is intentional.",
-  },
-  {
-    icon: Clock,
-    title: "Tradition",
-    description: "Timeless craft, modern approach.",
-  },
-  {
-    icon: Users,
-    title: "Community",
-    description: "Your neighborhood barbershop.",
-  },
+  { icon: Target, title: "Precision", description: "Every cut is intentional." },
+  { icon: Clock, title: "Tradition", description: "Timeless craft, modern approach." },
+  { icon: Users, title: "Community", description: "Your neighborhood barbershop." },
 ];
 
 export default function AboutPage() {
   return (
     <main>
-      {/* Page Hero — no FadeIn */}
       <section className="bg-secondary px-6 pt-28 pb-20 text-center">
         <div className="mx-auto max-w-3xl">
-          <p className="font-heading text-sm uppercase tracking-[0.25em] text-accent">
+          <p className="font-accent text-base italic tracking-wider text-accent">
             About Us
           </p>
           <h1 className="mt-2 font-heading text-4xl font-bold uppercase text-text-primary md:text-5xl">
             Our Story
           </h1>
-          <p className="mt-4 text-lg text-text-secondary">
+          <Divider variant="line" />
+          <p className="text-lg text-text-secondary">
             Proudly serving the Arcanum community with precision and pride.
           </p>
         </div>
       </section>
 
-      {/* Our Story */}
-      <section className="bg-background-light px-6 py-20 text-text-dark">
+      <section className="bg-parchment px-6 py-20 text-text-dark">
         <FadeIn>
-          <div className="mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-2">
+          <div className="relative mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-2">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded">
               <Image
                 src="/assets/shop-interior-wide-angle.webp"
@@ -88,14 +82,14 @@ export default function AboutPage() {
         </FadeIn>
       </section>
 
-      {/* Meet the Barbers */}
-      <section className="bg-primary px-6 py-20">
-        <div className="mx-auto max-w-7xl">
+      <section className="bg-primary bg-parchment-dark px-6 py-20">
+        <div className="relative mx-auto max-w-7xl">
           <FadeIn>
-            <p className="text-center font-heading text-sm uppercase tracking-[0.25em] text-accent">
+            <p className="text-center font-accent text-base italic tracking-wider text-accent">
               The Team
             </p>
-            <h2 className="mt-2 text-center font-heading text-3xl font-bold uppercase text-text-primary md:text-4xl">
+            <Divider variant="ornament" />
+            <h2 className="text-center font-heading text-3xl font-bold uppercase text-text-primary md:text-4xl">
               Meet Your Barbers
             </h2>
           </FadeIn>
@@ -103,10 +97,21 @@ export default function AboutPage() {
             {barbers.map((name, i) => (
               <FadeIn key={name} delay={i * 100}>
                 <div className="overflow-hidden rounded-lg bg-secondary text-center">
-                  <ImagePlaceholder
-                    label={`Portrait — ${name}`}
-                    className="aspect-[3/4] w-full rounded-none"
-                  />
+                  {barberImages[name] ? (
+                    <div className="relative aspect-[3/4] w-full">
+                      <Image
+                        src={barberImages[name]}
+                        alt={`${name} — Barber at Fade The Grain`}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <ImagePlaceholder
+                      label={`Portrait — ${name}`}
+                      className="aspect-[3/4] w-full rounded-none"
+                    />
+                  )}
                   <div className="p-6">
                     <h3 className="font-heading text-xl font-semibold uppercase text-text-primary">
                       {name}
@@ -127,7 +132,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Values */}
       <section className="bg-secondary px-6 py-20">
         <div className="mx-auto grid max-w-5xl gap-8 sm:grid-cols-3">
           {values.map((value, i) => (
@@ -146,7 +150,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA */}
       <CTABanner heading="Ready to Experience the Difference?" bookLabel="Book Now" />
     </main>
   );

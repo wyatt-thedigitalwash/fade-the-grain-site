@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
+import Divider from "@/components/Divider";
 import CTABanner from "@/components/CTABanner";
 
 export const metadata: Metadata = {
@@ -10,9 +11,6 @@ export const metadata: Metadata = {
 };
 
 const shopImages = [
-  { src: "/assets/shop-interior-wide-angle.webp", alt: "Fade The Grain Barbershop interior wide angle view" },
-  { src: "/assets/shop-interior-barber-chairs.webp", alt: "Classic barber chairs lined up at Fade The Grain" },
-  { src: "/assets/wall-mural-barbershop-sign.webp", alt: "Gold wall mural reading Fade The Grain Barber Shop" },
   { src: "/assets/waiting-area-lounge.webp", alt: "Comfortable lounge and waiting area with leather couches" },
   { src: "/assets/pool-table-lounge-mural.webp", alt: "Pool table in the lounge area with wall mural" },
   { src: "/assets/arcade-games-waiting-area.webp", alt: "Pac-Man and Street Fighter arcade games in waiting area" },
@@ -36,28 +34,28 @@ const workImages = [
 export default function GalleryPage() {
   return (
     <main>
-      {/* Page Hero — no FadeIn */}
       <section className="bg-secondary px-6 pt-28 pb-20 text-center">
         <div className="mx-auto max-w-3xl">
-          <p className="font-heading text-sm uppercase tracking-[0.25em] text-accent">
+          <p className="font-accent text-base italic tracking-wider text-accent">
             Gallery
           </p>
           <h1 className="mt-2 font-heading text-4xl font-bold uppercase text-text-primary md:text-5xl">
             Our Work &amp; Our Shop
           </h1>
-          <p className="mt-4 text-lg text-text-secondary">
+          <Divider variant="stars" />
+          <p className="text-lg text-text-secondary">
             See what we&apos;re all about.
           </p>
         </div>
       </section>
 
-      {/* The Shop */}
-      <section className="bg-background-light px-6 py-20 text-text-dark">
-        <div className="mx-auto max-w-7xl">
+      <section className="bg-parchment px-6 py-20 text-text-dark">
+        <div className="relative mx-auto max-w-7xl">
           <FadeIn>
-            <p className="font-heading text-sm uppercase tracking-[0.25em] text-accent">
+            <p className="font-accent text-base italic tracking-wider text-accent">
               The Shop
             </p>
+            <Divider variant="ornament" className="justify-start py-2" />
             <h2 className="mt-2 font-heading text-3xl font-bold uppercase md:text-4xl">
               Inside Fade The Grain
             </h2>
@@ -65,7 +63,7 @@ export default function GalleryPage() {
           <div className="mt-12 grid gap-4 grid-cols-2 lg:grid-cols-3">
             {shopImages.map((img, i) => (
               <FadeIn key={img.src} delay={i * 75}>
-                <div className="relative aspect-square w-full overflow-hidden rounded shadow-md">
+                <div className="relative aspect-[3/4] w-full overflow-hidden rounded shadow-md">
                   <Image
                     src={img.src}
                     alt={img.alt}
@@ -79,13 +77,13 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Our Work */}
-      <section className="bg-primary px-6 py-20">
-        <div className="mx-auto max-w-7xl">
+      <section className="bg-primary bg-parchment-dark px-6 py-20">
+        <div className="relative mx-auto max-w-7xl">
           <FadeIn>
-            <p className="font-heading text-sm uppercase tracking-[0.25em] text-accent">
+            <p className="font-accent text-base italic tracking-wider text-accent">
               Our Work
             </p>
+            <Divider variant="ornament" className="justify-start py-2" />
             <h2 className="mt-2 font-heading text-3xl font-bold uppercase text-text-primary md:text-4xl">
               Fresh Cuts &amp; Clean Fades
             </h2>
@@ -93,7 +91,7 @@ export default function GalleryPage() {
           <div className="mt-12 grid gap-4 grid-cols-2 lg:grid-cols-3">
             {workImages.map((img, i) => (
               <FadeIn key={img.src} delay={i * 75}>
-                <div className="relative aspect-square w-full overflow-hidden rounded shadow-md">
+                <div className="relative aspect-[3/4] w-full overflow-hidden rounded shadow-md">
                   <Image
                     src={img.src}
                     alt={img.alt}
@@ -107,7 +105,6 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* CTA */}
       <CTABanner heading="Like What You See?" bookLabel="Book Now" />
     </main>
   );

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { MapPin, Phone, Clock, Calendar } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
+import Divider from "@/components/Divider";
 import ContactForm from "./ContactForm";
 
 const BOOKING_URL =
@@ -25,25 +26,23 @@ const hours = [
 export default function ContactPage() {
   return (
     <main>
-      {/* Page Hero — no FadeIn */}
       <section className="bg-secondary px-6 pt-28 pb-20 text-center">
         <div className="mx-auto max-w-3xl">
-          <p className="font-heading text-sm uppercase tracking-[0.25em] text-accent">
+          <p className="font-accent text-base italic tracking-wider text-accent">
             Contact
           </p>
           <h1 className="mt-2 font-heading text-4xl font-bold uppercase text-text-primary md:text-5xl">
             Get In Touch
           </h1>
-          <p className="mt-4 text-lg text-text-secondary">
+          <Divider variant="line" />
+          <p className="text-lg text-text-secondary">
             Stop by, give us a call, or book online.
           </p>
         </div>
       </section>
 
-      {/* Contact Info + Form */}
-      <section className="bg-background-light px-6 py-20 text-text-dark">
-        <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
-          {/* Left — Details */}
+      <section className="bg-parchment px-6 py-20 text-text-dark">
+        <div className="relative mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
           <FadeIn>
             <div className="space-y-8">
               <div className="flex gap-4">
@@ -60,7 +59,6 @@ export default function ContactPage() {
                   </a>
                 </div>
               </div>
-
               <div className="flex gap-4">
                 <Phone size={24} className="shrink-0 text-accent" />
                 <div>
@@ -73,7 +71,6 @@ export default function ContactPage() {
                   </a>
                 </div>
               </div>
-
               <div className="flex gap-4">
                 <Clock size={24} className="shrink-0 text-accent" />
                 <div>
@@ -88,13 +85,10 @@ export default function ContactPage() {
                   </ul>
                 </div>
               </div>
-
               <div className="flex gap-4">
                 <Calendar size={24} className="shrink-0 text-accent" />
                 <div>
-                  <p className="font-heading font-semibold uppercase">
-                    Book Online
-                  </p>
+                  <p className="font-heading font-semibold uppercase">Book Online</p>
                   <a
                     href={BOOKING_URL}
                     target="_blank"
@@ -107,18 +101,15 @@ export default function ContactPage() {
               </div>
             </div>
           </FadeIn>
-
-          {/* Right — Form */}
           <FadeIn delay={100}>
             <ContactForm />
           </FadeIn>
         </div>
       </section>
 
-      {/* Map */}
-      <section className="bg-primary px-6 py-20">
+      <section className="bg-primary bg-parchment-dark px-6 py-20">
         <FadeIn>
-          <div className="mx-auto max-w-7xl overflow-hidden rounded-lg border border-white/10">
+          <div className="relative mx-auto max-w-7xl overflow-hidden rounded-lg border border-white/10">
             <iframe
               title="Fade The Grain Barbershop Location"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3064.5!2d-84.5564!3d39.9903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z7+N+Sycamore+St%2C+Arcanum%2C+OH+45304!5e0!3m2!1sen!2sus!4v1"
@@ -133,10 +124,9 @@ export default function ContactPage() {
         </FadeIn>
       </section>
 
-      {/* CTA */}
-      <section className="bg-accent px-6 py-16 text-center">
+      <section className="bg-accent bg-cta-texture px-6 py-16 text-center">
         <FadeIn>
-          <div className="mx-auto max-w-3xl">
+          <div className="relative mx-auto max-w-3xl border-y border-primary/20 py-8">
             <h2 className="font-heading text-3xl font-bold uppercase text-primary md:text-4xl">
               Walk-Ins Always Welcome
             </h2>

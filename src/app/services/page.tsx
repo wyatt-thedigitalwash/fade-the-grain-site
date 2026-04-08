@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Shield } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
+import Divider from "@/components/Divider";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import CTABanner from "@/components/CTABanner";
 
@@ -26,11 +28,7 @@ const haircuts: Service[] = [
 
 const beardShave: Service[] = [
   { name: "Beard Trim", price: "$15", duration: "20 min" },
-  {
-    name: "Straight Razor Shave w/ Hot Towel",
-    price: "$20",
-    duration: "30 min",
-  },
+  { name: "Straight Razor Shave w/ Hot Towel", price: "$20", duration: "30 min" },
 ];
 
 const discounts: Service[] = [
@@ -40,18 +38,24 @@ const discounts: Service[] = [
 
 const barbers = ["Aaron", "Preston", "Lauren"];
 
+const barberImages: Record<string, string> = {
+  Aaron: "/assets/barber-giving-boy-haircut.webp",
+  Preston: "/assets/precision-clipper-cut-action.webp",
+  Lauren: "/assets/lauren-barber.webp",
+};
+
 function ServiceRow({ service }: { service: Service }) {
   return (
-    <div className="flex items-center justify-between border-b border-text-dark/10 py-4 last:border-0">
-      <div>
-        <p className="font-heading text-lg font-semibold uppercase">
+    <div className="border-b border-text-dark/10 py-4 last:border-0">
+      <div className="flex items-baseline">
+        <p className="service-leader font-heading text-lg font-semibold uppercase">
           {service.name}
         </p>
-        <p className="text-sm text-text-dark/60">{service.duration}</p>
+        <p className="ml-2 shrink-0 font-heading text-xl font-bold text-accent">
+          {service.price}
+        </p>
       </div>
-      <p className="font-heading text-xl font-bold text-accent">
-        {service.price}
-      </p>
+      <p className="mt-1 text-sm text-text-dark/60">{service.duration}</p>
     </div>
   );
 }
@@ -72,7 +76,7 @@ function ServiceGroup({
           {title}
         </h3>
         {badge && (
-          <span className="flex items-center gap-1 rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-accent">
+          <span className="flex items-center gap-1 rounded-full bg-accent-red/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-accent-red">
             <Shield size={14} />
             Discount
           </span>
@@ -98,24 +102,23 @@ function ServiceGroup({
 export default function ServicesPage() {
   return (
     <main>
-      {/* Page Hero — no FadeIn */}
       <section className="bg-secondary px-6 pt-28 pb-20 text-center">
         <div className="mx-auto max-w-3xl">
-          <p className="font-heading text-sm uppercase tracking-[0.25em] text-accent">
+          <p className="font-accent text-base italic tracking-wider text-accent">
             Services
           </p>
           <h1 className="mt-2 font-heading text-4xl font-bold uppercase text-text-primary md:text-5xl">
             Services &amp; Pricing
           </h1>
-          <p className="mt-4 text-lg text-text-secondary">
+          <Divider variant="line" />
+          <p className="text-lg text-text-secondary">
             Quality grooming at honest prices.
           </p>
         </div>
       </section>
 
-      {/* Service Menu */}
-      <section className="bg-background-light px-6 py-20 text-text-dark">
-        <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
+      <section className="bg-parchment px-6 py-20 text-text-dark">
+        <div className="relative mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
           <FadeIn>
             <ServiceGroup title="Haircuts" services={haircuts} />
           </FadeIn>
@@ -128,14 +131,14 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Book by Barber */}
-      <section className="bg-primary px-6 py-20">
-        <div className="mx-auto max-w-7xl">
+      <section className="bg-primary bg-parchment-dark px-6 py-20">
+        <div className="relative mx-auto max-w-7xl">
           <FadeIn>
-            <p className="text-center font-heading text-sm uppercase tracking-[0.25em] text-accent">
+            <p className="text-center font-accent text-base italic tracking-wider text-accent">
               Choose Your Barber
             </p>
-            <h2 className="mt-2 text-center font-heading text-3xl font-bold uppercase text-text-primary md:text-4xl">
+            <Divider variant="ornament" />
+            <h2 className="text-center font-heading text-3xl font-bold uppercase text-text-primary md:text-4xl">
               Book by Barber
             </h2>
           </FadeIn>
@@ -143,10 +146,21 @@ export default function ServicesPage() {
             {barbers.map((name, i) => (
               <FadeIn key={name} delay={i * 100}>
                 <div className="overflow-hidden rounded-lg bg-secondary text-center">
-                  <ImagePlaceholder
-                    label={`Portrait — ${name}`}
-                    className="aspect-[3/4] w-full rounded-none"
-                  />
+                  {barberImages[name] ? (
+                    <div className="relative aspect-[3/4] w-full">
+                      <Image
+                        src={barberImages[name]}
+                        alt={`${name} — Barber at Fade The Grain`}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <ImagePlaceholder
+                      label={`Portrait — ${name}`}
+                      className="aspect-[3/4] w-full rounded-none"
+                    />
+                  )}
                   <div className="p-6">
                     <h3 className="font-heading text-xl font-semibold uppercase text-text-primary">
                       {name}
@@ -170,7 +184,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* CTA */}
       <CTABanner heading="Ready to Book?" bookLabel="Book Now" />
     </main>
   );

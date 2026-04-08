@@ -18,7 +18,7 @@ public/           — static assets (images, fonts, favicon)
 
 ## Design System
 - Colors: defined in SITE.md and globals.css (@theme)
-- Font: Oswald (headings) + Inter (body)
+- Font: Oswald (headings) + Inter (body) + Playfair Display (accent/decorative)
 - All pages must be mobile responsive (breakpoint: 768px)
 - Use semantic HTML (nav, main, section, footer, article)
 - Every image needs alt text

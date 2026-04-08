@@ -17,9 +17,9 @@ export default function CTABanner({
   showCall = false,
 }: CTABannerProps) {
   return (
-    <section className="bg-accent px-6 py-16 text-center">
+    <section className="bg-accent bg-cta-texture px-6 py-16 text-center">
       <FadeIn>
-        <div className="mx-auto max-w-3xl">
+        <div className="relative mx-auto max-w-3xl border-y border-primary/20 py-8">
           <h2 className="font-heading text-3xl font-bold uppercase text-primary md:text-4xl">
             {heading}
           </h2>

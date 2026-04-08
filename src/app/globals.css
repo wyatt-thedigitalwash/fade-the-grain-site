@@ -5,18 +5,77 @@
   --color-secondary: #261C17;
   --color-accent: #C8962E;
   --color-accent-hover: #B8860B;
+  --color-accent-red: #8B2500;
   --color-background-light: #F5EDE0;
   --color-text-primary: #F5EDE0;
   --color-text-secondary: #A89882;
   --color-text-dark: #2C1810;
   --font-heading: var(--font-heading), sans-serif;
   --font-body: var(--font-body), sans-serif;
+  --font-accent: var(--font-accent), serif;
 }
 
 body {
   font-family: var(--font-body), sans-serif;
   background-color: var(--color-primary);
   color: var(--color-text-primary);
+}
+
+/* Parchment texture — light sections */
+.bg-parchment {
+  background-color: var(--color-background-light);
+  position: relative;
+}
+.bg-parchment::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* Parchment texture — dark sections */
+.bg-parchment-dark {
+  position: relative;
+}
+.bg-parchment-dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' fill='%23F5EDE0'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* CTA banner texture */
+.bg-cta-texture {
+  position: relative;
+}
+.bg-cta-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* Dotted leader line for service menus */
+.service-leader {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.service-leader::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px dotted var(--color-text-dark);
+  opacity: 0.3;
+  margin-bottom: 0.2em;
 }
 
 /* Disable all transitions/animations for reduced-motion preference */
@@ -33,7 +92,7 @@ body {
 /* Collapse doubled padding between consecutive same-background sections */
 main > section.bg-primary + section.bg-primary,
 main > section.bg-secondary + section.bg-secondary,
-main > section.bg-background-light + section.bg-background-light,
+main > section.bg-parchment + section.bg-parchment,
 main > section.bg-accent + section.bg-accent {
   padding-top: 0;
 }

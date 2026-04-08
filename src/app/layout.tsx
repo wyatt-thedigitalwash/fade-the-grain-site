@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Oswald, Inter } from "next/font/google";
+import { Oswald, Inter, Playfair_Display } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import "./globals.css";
@@ -18,6 +18,14 @@ const inter = Inter({
   variable: "--font-body",
 });
 
+const playfair = Playfair_Display({
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-accent",
+});
+
 export const metadata: Metadata = {
   title: "Fade The Grain Barbershop | Arcanum, OH",
   description:
@@ -32,7 +40,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${oswald.variable} ${inter.variable} h-full antialiased`}
+      className={`${oswald.variable} ${inter.variable} ${playfair.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <a
