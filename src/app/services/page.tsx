@@ -17,15 +17,15 @@ export const metadata: Metadata = {
     title: "Services & Pricing | Fade The Grain Barbershop — Arcanum, OH",
     description:
       "Haircuts from $20, beard trims, straight razor shaves & more at Fade The Grain in Arcanum, OH. Veteran and senior discounts available.",
-    url: "https://DOMAIN.com/services",
-    images: [{ url: "/og-image.png" }],
+    url: "https://fadethegrainbarbershop.com/services",
+    images: [{ url: "/preview-banner.png" }],
   },
   twitter: {
     title: "Services & Pricing | Fade The Grain Barbershop — Arcanum, OH",
     description:
       "Haircuts from $20, beard trims, straight razor shaves & more at Fade The Grain in Arcanum, OH. Veteran and senior discounts available.",
   },
-  alternates: { canonical: "https://DOMAIN.com/services" },
+  alternates: { canonical: "https://fadethegrainbarbershop.com/services" },
 };
 
 interface Service {

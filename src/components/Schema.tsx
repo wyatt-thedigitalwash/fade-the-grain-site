@@ -1,4 +1,4 @@
-const BASE_URL = "https://DOMAIN.com";
+const BASE_URL = "https://fadethegrainbarbershop.com";
 
 const localBusiness = {
   "@context": "https://schema.org",

@@ -17,15 +17,15 @@ export const metadata: Metadata = {
     title: "About Us | Fade The Grain Barbershop — Arcanum, OH",
     description:
       "Learn about Fade The Grain — a veteran-owned barbershop in Arcanum, OH. Meet our barbers and discover our story.",
-    url: "https://DOMAIN.com/about",
-    images: [{ url: "/og-image.png" }],
+    url: "https://fadethegrainbarbershop.com/about",
+    images: [{ url: "/preview-banner.png" }],
   },
   twitter: {
     title: "About Us | Fade The Grain Barbershop — Arcanum, OH",
     description:
       "Learn about Fade The Grain — a veteran-owned barbershop in Arcanum, OH. Meet our barbers and discover our story.",
   },
-  alternates: { canonical: "https://DOMAIN.com/about" },
+  alternates: { canonical: "https://fadethegrainbarbershop.com/about" },
 };
 
 const barbers = [

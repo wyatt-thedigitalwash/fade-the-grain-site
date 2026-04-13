@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://DOMAIN.com';
+  const baseUrl = 'https://fadethegrainbarbershop.com';
 
   return [
     { url: baseUrl, changeFrequency: 'weekly' as const, priority: 1.0 },

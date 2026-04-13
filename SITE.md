@@ -6,7 +6,7 @@
 - Location: 7 N Sycamore St, Arcanum, OH 45304
 - Phone: (937) 467-2236
 - Email: (TBD)
-- Website URL: (TBD — will be assigned after domain purchase)
+- Website URL: https://fadethegrainbarbershop.com
 - Google Business Profile: (TBD)
 - Booking URL: https://booksy.com/en-us/1716033_fade-the-grain-barbershop_hair-salon_31201_arcanum
 - Veteran-owned: Yes
@@ -32,9 +32,10 @@
 We specialize in precision fades, classic cuts, beard trims, and men's grooming—delivered with the kind of detail, pride, and tradition you deserve.
 
 ## Barbers
-- Aaron
+- Aaron (Owner)
 - Preston
 - Lauren
+- Barney (Master Barber — walk-in only, Mon 12–5, Wed 9–6, Fri 9–6)
 
 ## Services & Pricing
 Popular:
@@ -88,7 +89,8 @@ All Services:
 - All "Book Now" buttons link to Booksy URL (opens in new tab)
 - Gallery page has two sections: "The Shop" and "Our Work" (cuts, before/afters)
 - Discounts for veterans/1st responders ($16) and seniors 65+ ($16)
-- Three barbers on staff: Aaron, Preston, Lauren
+- Four barbers on staff: Aaron, Preston, Lauren, Barney
+- Barney is walk-in only (no Booksy), works Mon/Wed/Fri
 - Site aesthetic: Vintage Americana / classic barbershop poster style
 - Uses parchment textures, decorative dividers, and script accent font for vintage feel
 - Veteran Owned badge styled as a stamp/seal element
