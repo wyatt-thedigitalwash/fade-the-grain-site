@@ -3,16 +3,29 @@ import Image from "next/image";
 import { Shield } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 import Divider from "@/components/Divider";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
+import { BreadcrumbSchema, ServiceSchema } from "@/components/Schema";
 import CTABanner from "@/components/CTABanner";
 
 const BOOKING_URL =
   "https://booksy.com/en-us/1716033_fade-the-grain-barbershop_hair-salon_31201_arcanum";
 
 export const metadata: Metadata = {
-  title: "Services & Pricing | Fade The Grain Barbershop",
+  title: "Services & Pricing | Fade The Grain Barbershop — Arcanum, OH",
   description:
-    "Haircuts, beard trims, straight razor shaves, and more. View our full service menu and pricing. Veteran and senior discounts available.",
+    "Haircuts from $20, beard trims, straight razor shaves & more at Fade The Grain in Arcanum, OH. Veteran and senior discounts available.",
+  openGraph: {
+    title: "Services & Pricing | Fade The Grain Barbershop — Arcanum, OH",
+    description:
+      "Haircuts from $20, beard trims, straight razor shaves & more at Fade The Grain in Arcanum, OH. Veteran and senior discounts available.",
+    url: "https://DOMAIN.com/services",
+    images: [{ url: "/og-image.png" }],
+  },
+  twitter: {
+    title: "Services & Pricing | Fade The Grain Barbershop — Arcanum, OH",
+    description:
+      "Haircuts from $20, beard trims, straight razor shaves & more at Fade The Grain in Arcanum, OH. Veteran and senior discounts available.",
+  },
+  alternates: { canonical: "https://DOMAIN.com/services" },
 };
 
 interface Service {
@@ -36,13 +49,12 @@ const discounts: Service[] = [
   { name: "Age 65+ Haircut", price: "$16", duration: "30 min" },
 ];
 
-const barbers = ["Aaron", "Preston", "Lauren"];
-
-const barberImages: Record<string, string> = {
-  Aaron: "/assets/barber-giving-boy-haircut.webp",
-  Preston: "/assets/precision-clipper-cut-action.webp",
-  Lauren: "/assets/lauren-barber.webp",
-};
+const barbers = [
+  { name: "Aaron", image: "/assets/barber-giving-boy-haircut.webp", walkIn: false },
+  { name: "Preston", image: "/assets/precision-clipper-cut-action.webp", walkIn: false },
+  { name: "Lauren", image: "/assets/lauren-barber.webp", walkIn: false },
+  { name: "Barney", image: "/assets/barbers-at-work-full-shop.webp", walkIn: true },
+];
 
 function ServiceRow({ service }: { service: Service }) {
   return (
@@ -77,7 +89,7 @@ function ServiceGroup({
         </h3>
         {badge && (
           <span className="flex items-center gap-1 rounded-full bg-accent-red/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-accent-red">
-            <Shield size={14} />
+            <Shield size={14} aria-hidden="true" />
             Discount
           </span>
         )}
@@ -102,6 +114,15 @@ function ServiceGroup({
 export default function ServicesPage() {
   return (
     <main>
+      <BreadcrumbSchema items={[{ name: "Home", href: "/" }, { name: "Services", href: "/services" }]} />
+      <ServiceSchema
+        services={[
+          { name: "Men's Haircut", description: "Precision men's haircut", price: "$20" },
+          { name: "Haircut & Beard Trim", description: "Haircut with beard trim and shaping", price: "$35" },
+          { name: "Beard Trim", description: "Beard trim and shaping", price: "$15" },
+          { name: "Straight Razor Shave w/ Hot Towel", description: "Classic straight razor shave with hot towel", price: "$20" },
+        ]}
+      />
       <section className="bg-secondary flex min-h-[45vh] items-center justify-center px-6 pt-20 text-center">
         <div className="mx-auto max-w-3xl">
           <h1 className="font-heading text-4xl font-bold uppercase text-text-primary md:text-5xl">
@@ -136,40 +157,39 @@ export default function ServicesPage() {
             </h2>
             <Divider variant="ornament" />
           </FadeIn>
-          <div className="mt-12 grid gap-8 sm:grid-cols-3">
-            {barbers.map((name, i) => (
-              <FadeIn key={name} delay={i * 100}>
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {barbers.map((barber, i) => (
+              <FadeIn key={barber.name} delay={i * 100}>
                 <div className="overflow-hidden rounded-lg bg-secondary text-center">
-                  {barberImages[name] ? (
-                    <div className="relative aspect-[3/4] w-full">
-                      <Image
-                        src={barberImages[name]}
-                        alt={`${name} — Barber at Fade The Grain`}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  ) : (
-                    <ImagePlaceholder
-                      label={`Portrait — ${name}`}
-                      className="aspect-[3/4] w-full rounded-none"
+                  <div className="relative aspect-[3/4] w-full">
+                    <Image
+                      src={barber.image}
+                      alt={`${barber.name} — Barber at Fade The Grain`}
+                      fill
+                      className="object-cover"
                     />
-                  )}
+                  </div>
                   <div className="p-6">
                     <h3 className="font-heading text-xl font-semibold uppercase text-text-primary">
-                      {name}
+                      {barber.name}
                     </h3>
                     <p className="mt-1 text-sm text-text-primary/60">
                       $20 &middot; 30 min
                     </p>
-                    <a
-                      href={BOOKING_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-4 inline-block rounded bg-accent px-6 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover"
-                    >
-                      Book with {name}
-                    </a>
+                    {barber.walkIn ? (
+                      <span className="mt-4 inline-block rounded border border-accent px-5 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-accent">
+                        Walk-In Only
+                      </span>
+                    ) : (
+                      <a
+                        href={BOOKING_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-4 inline-block rounded bg-accent px-6 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover"
+                      >
+                        Book with {barber.name}
+                      </a>
+                    )}
                   </div>
                 </div>
               </FadeIn>

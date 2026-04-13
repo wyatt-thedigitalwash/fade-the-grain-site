@@ -2,15 +2,29 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
 import Divider from "@/components/Divider";
+import { BreadcrumbSchema } from "@/components/Schema";
 import CTABanner from "@/components/CTABanner";
 
 const BOOKING_URL =
   "https://booksy.com/en-us/1716033_fade-the-grain-barbershop_hair-salon_31201_arcanum";
 
 export const metadata: Metadata = {
-  title: "Our Barbers | Fade The Grain Barbershop",
+  title: "Our Barbers | Fade The Grain Barbershop — Arcanum, OH",
   description:
-    "Meet the barbers at Fade The Grain in Arcanum, OH — Aaron, Preston, and Lauren. Book your appointment with your favorite barber today.",
+    "Meet the barbers at Fade The Grain in Arcanum, OH — Aaron, Preston, Lauren, and Barney. Book online or walk in today.",
+  openGraph: {
+    title: "Our Barbers | Fade The Grain Barbershop — Arcanum, OH",
+    description:
+      "Meet the barbers at Fade The Grain in Arcanum, OH — Aaron, Preston, Lauren, and Barney. Book online or walk in today.",
+    url: "https://DOMAIN.com/barbers",
+    images: [{ url: "/og-image.png" }],
+  },
+  twitter: {
+    title: "Our Barbers | Fade The Grain Barbershop — Arcanum, OH",
+    description:
+      "Meet the barbers at Fade The Grain in Arcanum, OH — Aaron, Preston, Lauren, and Barney. Book online or walk in today.",
+  },
+  alternates: { canonical: "https://DOMAIN.com/barbers" },
 };
 
 const barbers = [
@@ -18,6 +32,7 @@ const barbers = [
     name: "Aaron",
     role: "Barber / Owner",
     image: "/assets/barber-giving-boy-haircut.webp",
+    walkIn: false,
     description:
       "Veteran and founder of Fade The Grain. Aaron built this shop on pride, precision, and a genuine love for the craft. Whether it's a classic cut or a sharp fade, he brings the same attention to detail to every client.",
   },
@@ -25,6 +40,7 @@ const barbers = [
     name: "Preston",
     role: "Barber",
     image: "/assets/precision-clipper-cut-action.webp",
+    walkIn: false,
     description:
       "Known for his friendly demeanor and clean work, Preston makes every visit feel easy. He's got a knack for delivering exactly what you're looking for — and making sure you leave with a cut you're proud of.",
   },
@@ -32,14 +48,25 @@ const barbers = [
     name: "Lauren",
     role: "Barber",
     image: "/assets/lauren-barber.webp",
+    walkIn: false,
     description:
       "Lauren brings a fresh perspective and steady hand to the chair. From traditional cuts to modern styles, she's dedicated to making every client look and feel their best.",
+  },
+  {
+    name: "Barney",
+    role: "Master Barber",
+    image: "/assets/barbers-at-work-full-shop.webp",
+    walkIn: true,
+    description:
+      "Barney is a true southern gentleman, bringing over 30 years of barbering experience to the chair. With a steady hand and a storyteller's charm, he delivers more than just a haircut — he delivers an experience. If you've got time for a quality cut and maybe a good story or two, walk in and have a seat. Barney will take care of you.",
+    hours: "Mon 12–5 · Wed 9–6 · Fri 9–6",
   },
 ];
 
 export default function BarbersPage() {
   return (
     <main>
+      <BreadcrumbSchema items={[{ name: "Home", href: "/" }, { name: "Barbers", href: "/barbers" }]} />
       <section className="bg-secondary flex min-h-[45vh] items-center justify-center px-6 pt-20 text-center">
         <div className="mx-auto max-w-3xl">
           <h1 className="font-heading text-4xl font-bold uppercase text-text-primary md:text-5xl">
@@ -47,7 +74,7 @@ export default function BarbersPage() {
           </h1>
           <Divider variant="ornament" />
           <p className="text-lg text-text-primary/80">
-            Three barbers. One standard — precision.
+            Four barbers. One standard — precision.
           </p>
         </div>
       </section>
@@ -77,18 +104,33 @@ export default function BarbersPage() {
                   <p className="mt-4 leading-relaxed text-text-dark/80">
                     {barber.description}
                   </p>
-                  <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                    <a
-                      href={BOOKING_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="rounded bg-accent px-6 py-3 text-center font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover"
-                    >
-                      Book with {barber.name}
-                    </a>
-                    <p className="flex items-center text-sm text-text-dark/60">
-                      $20 &middot; 30 min
-                    </p>
+                  <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+                    {barber.walkIn ? (
+                      <>
+                        <span className="rounded border border-accent px-5 py-3 text-center font-heading text-sm font-semibold uppercase tracking-wide text-accent">
+                          Walk-In Only
+                        </span>
+                        {"hours" in barber && (
+                          <p className="text-sm text-text-dark/60">
+                            {barber.hours}
+                          </p>
+                        )}
+                      </>
+                    ) : (
+                      <>
+                        <a
+                          href={BOOKING_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="rounded bg-accent px-6 py-3 text-center font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover"
+                        >
+                          Book with {barber.name}
+                        </a>
+                        <p className="text-sm text-text-dark/60">
+                          $20 &middot; 30 min
+                        </p>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
@@ -105,28 +147,45 @@ export default function BarbersPage() {
             </h2>
             <Divider variant="stars" />
           </FadeIn>
-          <div className="mt-12 grid gap-6 sm:grid-cols-3">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {barbers.map((barber, i) => (
               <FadeIn key={barber.name} delay={i * 100}>
-                <a
-                  href={BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block rounded-lg bg-secondary p-8 text-center transition-colors duration-300 hover:bg-secondary/80"
-                >
-                  <h3 className="font-heading text-xl font-semibold uppercase text-text-primary">
-                    {barber.name}
-                  </h3>
-                  <p className="mt-1 text-sm text-text-primary/60">
-                    {barber.role}
-                  </p>
-                  <p className="mt-1 text-sm text-text-primary/60">
-                    $20 &middot; 30 min
-                  </p>
-                  <span className="mt-4 inline-block rounded bg-accent px-6 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover">
-                    Book Now
-                  </span>
-                </a>
+                {barber.walkIn ? (
+                  <div className="rounded-lg bg-secondary p-8 text-center">
+                    <h3 className="font-heading text-xl font-semibold uppercase text-text-primary">
+                      {barber.name}
+                    </h3>
+                    <p className="mt-1 text-sm text-text-primary/60">
+                      {barber.role}
+                    </p>
+                    <p className="mt-1 text-sm text-text-primary/60">
+                      {"hours" in barber ? barber.hours : "Walk-In"}
+                    </p>
+                    <span className="mt-4 inline-block rounded border border-accent px-6 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-accent">
+                      Walk-In Only
+                    </span>
+                  </div>
+                ) : (
+                  <a
+                    href={BOOKING_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block rounded-lg bg-secondary p-8 text-center transition-colors duration-300 hover:bg-secondary/80"
+                  >
+                    <h3 className="font-heading text-xl font-semibold uppercase text-text-primary">
+                      {barber.name}
+                    </h3>
+                    <p className="mt-1 text-sm text-text-primary/60">
+                      {barber.role}
+                    </p>
+                    <p className="mt-1 text-sm text-text-primary/60">
+                      $20 &middot; 30 min
+                    </p>
+                    <span className="mt-4 inline-block rounded bg-accent px-6 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover">
+                      Book Now
+                    </span>
+                  </a>
+                )}
               </FadeIn>
             ))}
           </div>

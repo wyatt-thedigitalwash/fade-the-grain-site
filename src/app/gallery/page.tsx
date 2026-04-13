@@ -2,12 +2,26 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
 import Divider from "@/components/Divider";
+import { BreadcrumbSchema } from "@/components/Schema";
 import CTABanner from "@/components/CTABanner";
 
 export const metadata: Metadata = {
-  title: "Gallery | Fade The Grain Barbershop",
+  title: "Gallery | Fade The Grain Barbershop — Arcanum, OH",
   description:
-    "See our barbershop, our work, and the Fade The Grain experience. Before and afters, fresh cuts, and shop vibes.",
+    "See our barbershop, our work, and the Fade The Grain experience in Arcanum, OH. Fresh cuts, clean fades, and shop vibes.",
+  openGraph: {
+    title: "Gallery | Fade The Grain Barbershop — Arcanum, OH",
+    description:
+      "See our barbershop, our work, and the Fade The Grain experience in Arcanum, OH. Fresh cuts, clean fades, and shop vibes.",
+    url: "https://DOMAIN.com/gallery",
+    images: [{ url: "/og-image.png" }],
+  },
+  twitter: {
+    title: "Gallery | Fade The Grain Barbershop — Arcanum, OH",
+    description:
+      "See our barbershop, our work, and the Fade The Grain experience in Arcanum, OH. Fresh cuts, clean fades, and shop vibes.",
+  },
+  alternates: { canonical: "https://DOMAIN.com/gallery" },
 };
 
 const shopImages = [
@@ -34,6 +48,7 @@ const workImages = [
 export default function GalleryPage() {
   return (
     <main>
+      <BreadcrumbSchema items={[{ name: "Home", href: "/" }, { name: "Gallery", href: "/gallery" }]} />
       <section className="bg-secondary flex min-h-[45vh] items-center justify-center px-6 pt-20 text-center">
         <div className="mx-auto max-w-3xl">
           <h1 className="font-heading text-4xl font-bold uppercase text-text-primary md:text-5xl">

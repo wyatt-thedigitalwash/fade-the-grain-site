@@ -3,25 +3,37 @@ import Image from "next/image";
 import { Target, Clock, Users } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 import Divider from "@/components/Divider";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
+import { BreadcrumbSchema } from "@/components/Schema";
 import CTABanner from "@/components/CTABanner";
 
 const BOOKING_URL =
   "https://booksy.com/en-us/1716033_fade-the-grain-barbershop_hair-salon_31201_arcanum";
 
 export const metadata: Metadata = {
-  title: "About Us | Fade The Grain Barbershop",
+  title: "About Us | Fade The Grain Barbershop — Arcanum, OH",
   description:
     "Learn about Fade The Grain — a veteran-owned barbershop in Arcanum, OH. Meet our barbers and discover our story.",
+  openGraph: {
+    title: "About Us | Fade The Grain Barbershop — Arcanum, OH",
+    description:
+      "Learn about Fade The Grain — a veteran-owned barbershop in Arcanum, OH. Meet our barbers and discover our story.",
+    url: "https://DOMAIN.com/about",
+    images: [{ url: "/og-image.png" }],
+  },
+  twitter: {
+    title: "About Us | Fade The Grain Barbershop — Arcanum, OH",
+    description:
+      "Learn about Fade The Grain — a veteran-owned barbershop in Arcanum, OH. Meet our barbers and discover our story.",
+  },
+  alternates: { canonical: "https://DOMAIN.com/about" },
 };
 
-const barbers = ["Aaron", "Preston", "Lauren"];
-
-const barberImages: Record<string, string> = {
-  Aaron: "/assets/barber-giving-boy-haircut.webp",
-  Preston: "/assets/precision-clipper-cut-action.webp",
-  Lauren: "/assets/lauren-barber.webp",
-};
+const barbers = [
+  { name: "Aaron", image: "/assets/barber-giving-boy-haircut.webp", walkIn: false },
+  { name: "Preston", image: "/assets/precision-clipper-cut-action.webp", walkIn: false },
+  { name: "Lauren", image: "/assets/lauren-barber.webp", walkIn: false },
+  { name: "Barney", image: "/assets/barbers-at-work-full-shop.webp", walkIn: true },
+];
 
 const values = [
   { icon: Target, title: "Precision", description: "Every cut is intentional." },
@@ -32,6 +44,7 @@ const values = [
 export default function AboutPage() {
   return (
     <main>
+      <BreadcrumbSchema items={[{ name: "Home", href: "/" }, { name: "About", href: "/about" }]} />
       <section className="bg-secondary flex min-h-[45vh] items-center justify-center px-6 pt-20 text-center">
         <div className="mx-auto max-w-3xl">
           <h1 className="font-heading text-4xl font-bold uppercase text-text-primary md:text-5xl">
@@ -87,37 +100,36 @@ export default function AboutPage() {
             </h2>
             <Divider variant="ornament" />
           </FadeIn>
-          <div className="mt-12 grid gap-8 sm:grid-cols-3">
-            {barbers.map((name, i) => (
-              <FadeIn key={name} delay={i * 100}>
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {barbers.map((barber, i) => (
+              <FadeIn key={barber.name} delay={i * 100}>
                 <div className="overflow-hidden rounded-lg bg-secondary text-center">
-                  {barberImages[name] ? (
-                    <div className="relative aspect-[3/4] w-full">
-                      <Image
-                        src={barberImages[name]}
-                        alt={`${name} — Barber at Fade The Grain`}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  ) : (
-                    <ImagePlaceholder
-                      label={`Portrait — ${name}`}
-                      className="aspect-[3/4] w-full rounded-none"
+                  <div className="relative aspect-[3/4] w-full">
+                    <Image
+                      src={barber.image}
+                      alt={`${barber.name} — Barber at Fade The Grain`}
+                      fill
+                      className="object-cover"
                     />
-                  )}
+                  </div>
                   <div className="p-6">
                     <h3 className="font-heading text-xl font-semibold uppercase text-text-primary">
-                      {name}
+                      {barber.name}
                     </h3>
-                    <a
-                      href={BOOKING_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-4 inline-block rounded bg-accent px-6 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover"
-                    >
-                      Book with {name}
-                    </a>
+                    {barber.walkIn ? (
+                      <span className="mt-4 inline-block rounded border border-accent px-5 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-accent">
+                        Walk-In Only
+                      </span>
+                    ) : (
+                      <a
+                        href={BOOKING_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-4 inline-block rounded bg-accent px-6 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover"
+                      >
+                        Book with {barber.name}
+                      </a>
+                    )}
                   </div>
                 </div>
               </FadeIn>
@@ -131,7 +143,7 @@ export default function AboutPage() {
           {values.map((value, i) => (
             <FadeIn key={value.title} delay={i * 100}>
               <div className="text-center">
-                <value.icon size={40} className="mx-auto text-accent" />
+                <value.icon size={40} className="mx-auto text-accent" aria-hidden="true" />
                 <h3 className="mt-4 font-heading text-lg font-semibold uppercase text-text-primary">
                   {value.title}
                 </h3>

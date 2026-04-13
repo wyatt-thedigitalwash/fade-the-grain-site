@@ -2,15 +2,29 @@ import type { Metadata } from "next";
 import { MapPin, Phone, Clock, Calendar } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 import Divider from "@/components/Divider";
+import { BreadcrumbSchema } from "@/components/Schema";
 import ContactForm from "./ContactForm";
 
 const BOOKING_URL =
   "https://booksy.com/en-us/1716033_fade-the-grain-barbershop_hair-salon_31201_arcanum";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Fade The Grain Barbershop",
+  title: "Contact Us | Fade The Grain Barbershop — Arcanum, OH",
   description:
-    "Get in touch with Fade The Grain Barbershop in Arcanum, OH. Call, visit, or book online. Walk-ins always welcome.",
+    "Contact Fade The Grain Barbershop in Arcanum, OH. Call (937) 467-2236, visit 7 N Sycamore St, or book online. Walk-ins always welcome.",
+  openGraph: {
+    title: "Contact Us | Fade The Grain Barbershop — Arcanum, OH",
+    description:
+      "Contact Fade The Grain Barbershop in Arcanum, OH. Call (937) 467-2236, visit 7 N Sycamore St, or book online. Walk-ins always welcome.",
+    url: "https://DOMAIN.com/contact",
+    images: [{ url: "/og-image.png" }],
+  },
+  twitter: {
+    title: "Contact Us | Fade The Grain Barbershop — Arcanum, OH",
+    description:
+      "Contact Fade The Grain Barbershop in Arcanum, OH. Call (937) 467-2236, visit 7 N Sycamore St, or book online. Walk-ins always welcome.",
+  },
+  alternates: { canonical: "https://DOMAIN.com/contact" },
 };
 
 const hours = [
@@ -26,6 +40,7 @@ const hours = [
 export default function ContactPage() {
   return (
     <main>
+      <BreadcrumbSchema items={[{ name: "Home", href: "/" }, { name: "Contact", href: "/contact" }]} />
       <section className="bg-secondary flex min-h-[45vh] items-center justify-center px-6 pt-20 text-center">
         <div className="mx-auto max-w-3xl">
           <h1 className="font-heading text-4xl font-bold uppercase text-text-primary md:text-5xl">
@@ -43,7 +58,7 @@ export default function ContactPage() {
           <FadeIn>
             <div className="space-y-8">
               <div className="flex gap-4">
-                <MapPin size={24} className="shrink-0 text-accent" />
+                <MapPin size={24} className="shrink-0 text-accent" aria-hidden="true" />
                 <div>
                   <p className="font-heading font-semibold uppercase">Address</p>
                   <a
@@ -57,7 +72,7 @@ export default function ContactPage() {
                 </div>
               </div>
               <div className="flex gap-4">
-                <Phone size={24} className="shrink-0 text-accent" />
+                <Phone size={24} className="shrink-0 text-accent" aria-hidden="true" />
                 <div>
                   <p className="font-heading font-semibold uppercase">Phone</p>
                   <a
@@ -69,7 +84,7 @@ export default function ContactPage() {
                 </div>
               </div>
               <div className="flex gap-4">
-                <Clock size={24} className="shrink-0 text-accent" />
+                <Clock size={24} className="shrink-0 text-accent" aria-hidden="true" />
                 <div>
                   <p className="font-heading font-semibold uppercase">Hours</p>
                   <ul className="mt-1 space-y-1 text-sm text-text-dark/80">
@@ -83,7 +98,7 @@ export default function ContactPage() {
                 </div>
               </div>
               <div className="flex gap-4">
-                <Calendar size={24} className="shrink-0 text-accent" />
+                <Calendar size={24} className="shrink-0 text-accent" aria-hidden="true" />
                 <div>
                   <p className="font-heading font-semibold uppercase">Book Online</p>
                   <a

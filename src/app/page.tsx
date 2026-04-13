@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Scissors, User, SprayCan, Sparkles, Shield, DoorOpen, Heart, Star } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 import Divider from "@/components/Divider";
+import { BreadcrumbSchema } from "@/components/Schema";
 import CTABanner from "@/components/CTABanner";
 
 const BOOKING_URL =
@@ -89,13 +90,12 @@ const testimonials = [
   },
 ];
 
-const barbers = ["Aaron", "Preston", "Lauren"];
-
-const barberImages: Record<string, string> = {
-  Aaron: "/assets/barber-giving-boy-haircut.webp",
-  Preston: "/assets/precision-clipper-cut-action.webp",
-  Lauren: "/assets/lauren-barber.webp",
-};
+const barbers = [
+  { name: "Aaron", image: "/assets/barber-giving-boy-haircut.webp", walkIn: false },
+  { name: "Preston", image: "/assets/precision-clipper-cut-action.webp", walkIn: false },
+  { name: "Lauren", image: "/assets/lauren-barber.webp", walkIn: false },
+  { name: "Barney", image: "/assets/barbers-at-work-full-shop.webp", walkIn: true },
+];
 
 const showcaseImages = [
   { src: "/assets/classic-taper-haircut-result.webp", alt: "Classic taper haircut result at Fade The Grain" },
@@ -106,6 +106,7 @@ const showcaseImages = [
 export default function Home() {
   return (
     <main>
+      <BreadcrumbSchema items={[{ name: "Home", href: "/" }]} />
       {/* Hero */}
       <section className="relative flex min-h-screen items-center justify-center bg-secondary">
         <Image
@@ -169,7 +170,7 @@ export default function Home() {
             {services.map((service, i) => (
               <FadeIn key={service.name} delay={i * 100}>
                 <div className="h-full rounded-lg bg-secondary p-6">
-                  <service.icon size={32} className="text-accent" />
+                  <service.icon size={32} className="text-accent" aria-hidden="true" />
                   <h3 className="mt-4 font-heading text-lg font-semibold uppercase text-text-primary">
                     {service.name}
                   </h3>
@@ -205,40 +206,36 @@ export default function Home() {
             </h2>
             <Divider variant="line" />
           </FadeIn>
-          <div className="mt-12 grid gap-8 sm:grid-cols-3">
-            {barbers.map((name, i) => (
-              <FadeIn key={name} delay={i * 100}>
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {barbers.map((barber, i) => (
+              <FadeIn key={barber.name} delay={i * 100}>
                 <div className="overflow-hidden rounded-lg bg-primary text-center">
-                  {barberImages[name] ? (
-                    <div className="relative aspect-[3/4] w-full">
-                      <Image
-                        src={barberImages[name]}
-                        alt={`${name} — Barber at Fade The Grain`}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  ) : (
-                    <div
-                      className="flex aspect-[3/4] w-full items-center justify-center bg-[#3D2B1F] p-4 text-center text-sm text-text-secondary"
-                      role="img"
-                      aria-label={`Portrait — ${name}`}
-                    >
-                      Portrait — {name}
-                    </div>
-                  )}
+                  <div className="relative aspect-[3/4] w-full">
+                    <Image
+                      src={barber.image}
+                      alt={`${barber.name} — Barber at Fade The Grain`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                   <div className="p-6">
                     <h3 className="font-heading text-xl font-semibold uppercase text-text-primary">
-                      {name}
+                      {barber.name}
                     </h3>
-                    <a
-                      href={BOOKING_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-4 inline-block rounded bg-accent px-6 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover"
-                    >
-                      Book with {name}
-                    </a>
+                    {barber.walkIn ? (
+                      <span className="mt-4 inline-block rounded border border-accent px-5 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-accent">
+                        Walk-In Only
+                      </span>
+                    ) : (
+                      <a
+                        href={BOOKING_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-4 inline-block rounded bg-accent px-6 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover"
+                      >
+                        Book with {barber.name}
+                      </a>
+                    )}
                   </div>
                 </div>
               </FadeIn>
@@ -309,7 +306,7 @@ export default function Home() {
             {features.map((feature, i) => (
               <FadeIn key={feature.title} delay={i * 100}>
                 <div className="text-center">
-                  <feature.icon size={40} className="mx-auto text-accent" />
+                  <feature.icon size={40} className="mx-auto text-accent" aria-hidden="true" />
                   <h3 className="mt-4 font-heading text-lg font-semibold uppercase text-text-primary">
                     {feature.title}
                   </h3>
@@ -338,7 +335,7 @@ export default function Home() {
                 <div className="flex h-full flex-col rounded-lg bg-white p-6 shadow-sm">
                   <div className="flex gap-1">
                     {Array.from({ length: 5 }).map((_, j) => (
-                      <Star key={j} size={16} className="fill-accent text-accent" />
+                      <Star key={j} size={16} className="fill-accent text-accent" aria-hidden="true" />
                     ))}
                   </div>
                   <p className="mt-4 flex-1 text-sm leading-relaxed text-text-dark/80">

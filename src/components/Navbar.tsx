@@ -50,9 +50,13 @@ export default function Navbar() {
           <Image
             src="/branding/fade-the-grain-logo-gold.webp"
             alt="Fade The Grain Barbershop"
-            width={48}
-            height={48}
-            className="h-10 w-10 md:h-12 md:w-12"
+            width={84}
+            height={84}
+            className="transition-[width,height] duration-300 ease-out"
+            style={{
+              width: isHome && !scrolled ? 84 : 50,
+              height: isHome && !scrolled ? 84 : 50,
+            }}
             priority
           />
         </Link>
@@ -94,7 +98,7 @@ export default function Navbar() {
           className="text-text-primary transition-colors duration-300 md:hidden"
           aria-label="Open menu"
         >
-          <Menu size={28} />
+          <Menu size={28} aria-hidden="true" />
         </button>
       </div>
 
@@ -122,7 +126,7 @@ export default function Navbar() {
             className="text-text-primary"
             aria-label="Close menu"
           >
-            <X size={28} />
+            <X size={28} aria-hidden="true" />
           </button>
         </div>
 
