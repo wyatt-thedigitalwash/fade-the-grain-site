@@ -43,7 +43,7 @@ const values = [
 
 export default function AboutPage() {
   return (
-    <main>
+    <>
       <BreadcrumbSchema items={[{ name: "Home", href: "/" }, { name: "About", href: "/about" }]} />
       <section className="bg-secondary flex min-h-[45vh] items-center justify-center px-6 pt-20 text-center">
         <div className="mx-auto max-w-3xl">
@@ -127,7 +127,7 @@ export default function AboutPage() {
                         rel="noopener noreferrer"
                         className="mt-4 inline-block rounded bg-accent px-6 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover"
                       >
-                        Book with {barber.name}
+                        Book with {barber.name}<span className="sr-only"> (opens in new tab)</span>
                       </a>
                     )}
                   </div>
@@ -157,6 +157,6 @@ export default function AboutPage() {
       </section>
 
       <CTABanner heading="Ready to Experience the Difference?" bookLabel="Book Now" />
-    </main>
+    </>
   );
 }

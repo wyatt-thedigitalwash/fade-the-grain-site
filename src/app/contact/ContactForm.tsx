@@ -34,8 +34,11 @@ export default function ContactForm() {
     }
   }
 
+  const inputClasses =
+    "mt-1 w-full rounded border border-text-dark/20 bg-white px-4 py-3 text-sm text-text-dark transition-colors focus:border-accent focus:ring-2 focus:ring-accent/30 focus:outline-none";
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6" noValidate>
       <div>
         <label
           htmlFor="name"
@@ -48,7 +51,8 @@ export default function ContactForm() {
           name="name"
           type="text"
           required
-          className="mt-1 w-full rounded border border-text-dark/20 bg-white px-4 py-3 text-sm text-text-dark outline-none transition-colors focus:border-accent"
+          aria-required="true"
+          className={inputClasses}
         />
       </div>
 
@@ -64,7 +68,8 @@ export default function ContactForm() {
           name="email"
           type="email"
           required
-          className="mt-1 w-full rounded border border-text-dark/20 bg-white px-4 py-3 text-sm text-text-dark outline-none transition-colors focus:border-accent"
+          aria-required="true"
+          className={inputClasses}
         />
       </div>
 
@@ -79,7 +84,7 @@ export default function ContactForm() {
           id="phone"
           name="phone"
           type="tel"
-          className="mt-1 w-full rounded border border-text-dark/20 bg-white px-4 py-3 text-sm text-text-dark outline-none transition-colors focus:border-accent"
+          className={inputClasses}
         />
       </div>
 
@@ -95,7 +100,8 @@ export default function ContactForm() {
           name="message"
           rows={5}
           required
-          className="mt-1 w-full rounded border border-text-dark/20 bg-white px-4 py-3 text-sm text-text-dark outline-none transition-colors focus:border-accent"
+          aria-required="true"
+          className={inputClasses}
         />
       </div>
 
@@ -108,12 +114,12 @@ export default function ContactForm() {
       </button>
 
       {status === "sent" && (
-        <p className="text-sm font-medium text-green-700">
+        <p role="alert" className="text-sm font-medium text-green-700">
           Message sent! We&apos;ll get back to you soon.
         </p>
       )}
       {status === "error" && (
-        <p className="text-sm font-medium text-red-600">
+        <p role="alert" className="text-sm font-medium text-red-600">
           Something went wrong. Please call us or try again later.
         </p>
       )}

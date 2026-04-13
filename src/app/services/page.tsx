@@ -67,7 +67,7 @@ function ServiceRow({ service }: { service: Service }) {
           {service.price}
         </p>
       </div>
-      <p className="mt-1 text-sm text-text-dark/60">{service.duration}</p>
+      <p className="mt-1 text-sm text-text-dark/75">{service.duration}</p>
     </div>
   );
 }
@@ -105,7 +105,7 @@ function ServiceGroup({
         rel="noopener noreferrer"
         className="mt-6 inline-block rounded bg-accent px-6 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover"
       >
-        Book Now
+        Book Now<span className="sr-only"> (opens in new tab)</span>
       </a>
     </div>
   );
@@ -113,7 +113,7 @@ function ServiceGroup({
 
 export default function ServicesPage() {
   return (
-    <main>
+    <>
       <BreadcrumbSchema items={[{ name: "Home", href: "/" }, { name: "Services", href: "/services" }]} />
       <ServiceSchema
         services={[
@@ -173,7 +173,7 @@ export default function ServicesPage() {
                     <h3 className="font-heading text-xl font-semibold uppercase text-text-primary">
                       {barber.name}
                     </h3>
-                    <p className="mt-1 text-sm text-text-primary/60">
+                    <p className="mt-1 text-sm text-text-primary/70">
                       $20 &middot; 30 min
                     </p>
                     {barber.walkIn ? (
@@ -187,7 +187,7 @@ export default function ServicesPage() {
                         rel="noopener noreferrer"
                         className="mt-4 inline-block rounded bg-accent px-6 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover"
                       >
-                        Book with {barber.name}
+                        Book with {barber.name}<span className="sr-only"> (opens in new tab)</span>
                       </a>
                     )}
                   </div>
@@ -199,6 +199,6 @@ export default function ServicesPage() {
       </section>
 
       <CTABanner heading="Ready to Book?" bookLabel="Book Now" />
-    </main>
+    </>
   );
 }

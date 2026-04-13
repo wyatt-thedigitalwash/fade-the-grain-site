@@ -47,7 +47,7 @@ const workImages = [
 
 export default function GalleryPage() {
   return (
-    <main>
+    <>
       <BreadcrumbSchema items={[{ name: "Home", href: "/" }, { name: "Gallery", href: "/gallery" }]} />
       <section className="bg-secondary flex min-h-[45vh] items-center justify-center px-6 pt-20 text-center">
         <div className="mx-auto max-w-3xl">
@@ -112,6 +112,6 @@ export default function GalleryPage() {
       </section>
 
       <CTABanner heading="Like What You See?" bookLabel="Book Now" />
-    </main>
+    </>
   );
 }

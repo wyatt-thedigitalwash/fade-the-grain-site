@@ -105,7 +105,7 @@ const showcaseImages = [
 
 export default function Home() {
   return (
-    <main>
+    <>
       <BreadcrumbSchema items={[{ name: "Home", href: "/" }]} />
       {/* Hero */}
       <section className="relative flex min-h-screen items-center justify-center bg-secondary">
@@ -145,7 +145,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="rounded bg-accent px-8 py-3 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover"
             >
-              Book Now
+              Book Now<span className="sr-only"> (opens in new tab)</span>
             </a>
             <Link
               href="/services"
@@ -233,7 +233,7 @@ export default function Home() {
                         rel="noopener noreferrer"
                         className="mt-4 inline-block rounded bg-accent px-6 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover"
                       >
-                        Book with {barber.name}
+                        Book with {barber.name}<span className="sr-only"> (opens in new tab)</span>
                       </a>
                     )}
                   </div>
@@ -388,6 +388,6 @@ export default function Home() {
       </section>
 
       <CTABanner heading="Ready for a Fresh Cut?" />
-    </main>
+    </>
   );
 }

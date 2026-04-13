@@ -81,6 +81,12 @@ body {
   margin-bottom: 0.2em;
 }
 
+/* Global focus-visible indicator */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
 /* Disable all transitions/animations for reduced-motion preference */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -89,6 +95,7 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 

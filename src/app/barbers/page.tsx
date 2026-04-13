@@ -65,7 +65,7 @@ const barbers = [
 
 export default function BarbersPage() {
   return (
-    <main>
+    <>
       <BreadcrumbSchema items={[{ name: "Home", href: "/" }, { name: "Barbers", href: "/barbers" }]} />
       <section className="bg-secondary flex min-h-[45vh] items-center justify-center px-6 pt-20 text-center">
         <div className="mx-auto max-w-3xl">
@@ -111,7 +111,7 @@ export default function BarbersPage() {
                           Walk-In Only
                         </span>
                         {"hours" in barber && (
-                          <p className="text-sm text-text-dark/60">
+                          <p className="text-sm text-text-dark/75">
                             {barber.hours}
                           </p>
                         )}
@@ -124,9 +124,9 @@ export default function BarbersPage() {
                           rel="noopener noreferrer"
                           className="rounded bg-accent px-6 py-3 text-center font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover"
                         >
-                          Book with {barber.name}
+                          Book with {barber.name}<span className="sr-only"> (opens in new tab)</span>
                         </a>
-                        <p className="text-sm text-text-dark/60">
+                        <p className="text-sm text-text-dark/75">
                           $20 &middot; 30 min
                         </p>
                       </>
@@ -155,10 +155,10 @@ export default function BarbersPage() {
                     <h3 className="font-heading text-xl font-semibold uppercase text-text-primary">
                       {barber.name}
                     </h3>
-                    <p className="mt-1 text-sm text-text-primary/60">
+                    <p className="mt-1 text-sm text-text-primary/70">
                       {barber.role}
                     </p>
-                    <p className="mt-1 text-sm text-text-primary/60">
+                    <p className="mt-1 text-sm text-text-primary/70">
                       {"hours" in barber ? barber.hours : "Walk-In"}
                     </p>
                     <span className="mt-4 inline-block rounded border border-accent px-6 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-accent">
@@ -175,14 +175,14 @@ export default function BarbersPage() {
                     <h3 className="font-heading text-xl font-semibold uppercase text-text-primary">
                       {barber.name}
                     </h3>
-                    <p className="mt-1 text-sm text-text-primary/60">
+                    <p className="mt-1 text-sm text-text-primary/70">
                       {barber.role}
                     </p>
-                    <p className="mt-1 text-sm text-text-primary/60">
+                    <p className="mt-1 text-sm text-text-primary/70">
                       $20 &middot; 30 min
                     </p>
                     <span className="mt-4 inline-block rounded bg-accent px-6 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover">
-                      Book Now
+                      Book Now<span className="sr-only"> (opens in new tab)</span>
                     </span>
                   </a>
                 )}
@@ -193,6 +193,6 @@ export default function BarbersPage() {
       </section>
 
       <CTABanner heading="Walk-Ins Always Welcome" showCall />
-    </main>
+    </>
   );
 }

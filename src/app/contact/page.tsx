@@ -39,7 +39,7 @@ const hours = [
 
 export default function ContactPage() {
   return (
-    <main>
+    <>
       <BreadcrumbSchema items={[{ name: "Home", href: "/" }, { name: "Contact", href: "/contact" }]} />
       <section className="bg-secondary flex min-h-[45vh] items-center justify-center px-6 pt-20 text-center">
         <div className="mx-auto max-w-3xl">
@@ -107,7 +107,7 @@ export default function ContactPage() {
                     rel="noopener noreferrer"
                     className="text-sm text-text-dark/80 underline transition-colors duration-300 hover:text-accent"
                   >
-                    Schedule on Booksy
+                    Schedule on Booksy<span className="sr-only"> (opens in new tab)</span>
                   </a>
                 </div>
               </div>
@@ -149,7 +149,7 @@ export default function ContactPage() {
                 rel="noopener noreferrer"
                 className="rounded bg-primary px-8 py-3 font-heading text-sm font-semibold uppercase tracking-wide text-white transition-colors duration-300 hover:bg-secondary"
               >
-                Book Online
+                Book Online<span className="sr-only"> (opens in new tab)</span>
               </a>
               <a
                 href="tel:+19374672236"
@@ -161,6 +161,6 @@ export default function ContactPage() {
           </div>
         </FadeIn>
       </section>
-    </main>
+    </>
   );
 }

@@ -31,6 +31,7 @@ export default function CTABanner({
               className="rounded bg-primary px-8 py-3 font-heading text-sm font-semibold uppercase tracking-wide text-white transition-colors duration-300 hover:bg-secondary"
             >
               {bookLabel}
+              <span className="sr-only"> (opens in new tab)</span>
             </a>
             {showCall && (
               <a
