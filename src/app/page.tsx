@@ -273,9 +273,9 @@ export default function Home() {
               <Divider variant="ornament" className="justify-start py-2" />
               <p className="mt-6 leading-relaxed text-text-dark/80">
                 Fade The Grain is a veteran-owned barbershop rooted in the heart
-                of Arcanum, Ohio. With three skilled barbers on staff — Aaron,
-                Preston, and Lauren — we combine modern techniques with timeless
-                tradition to deliver cuts you can be proud of.
+                of Arcanum, Ohio. With four skilled barbers on staff — Aaron,
+                Preston, Lauren, and Barney — we combine modern techniques with
+                timeless tradition to deliver cuts you can be proud of.
               </p>
               <p className="mt-4 leading-relaxed text-text-dark/80">
                 This isn&apos;t just a place to get a haircut. It&apos;s your
