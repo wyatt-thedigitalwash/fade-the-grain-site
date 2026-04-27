@@ -9,18 +9,18 @@ const BOOKING_URL =
   "https://booksy.com/en-us/1716033_fade-the-grain-barbershop_hair-salon_31201_arcanum";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Fade The Grain Barbershop — Arcanum, OH",
+  title: "Contact Us | Fade The Grain Barbershop - Arcanum, OH",
   description:
     "Contact Fade The Grain Barbershop in Arcanum, OH. Call (937) 467-2236, visit 7 N Sycamore St, or book online. Walk-ins always welcome.",
   openGraph: {
-    title: "Contact Us | Fade The Grain Barbershop — Arcanum, OH",
+    title: "Contact Us | Fade The Grain Barbershop - Arcanum, OH",
     description:
       "Contact Fade The Grain Barbershop in Arcanum, OH. Call (937) 467-2236, visit 7 N Sycamore St, or book online. Walk-ins always welcome.",
     url: "https://fadethegrainbarbershop.com/contact",
     images: [{ url: "/preview-banner.png" }],
   },
   twitter: {
-    title: "Contact Us | Fade The Grain Barbershop — Arcanum, OH",
+    title: "Contact Us | Fade The Grain Barbershop - Arcanum, OH",
     description:
       "Contact Fade The Grain Barbershop in Arcanum, OH. Call (937) 467-2236, visit 7 N Sycamore St, or book online. Walk-ins always welcome.",
   },

@@ -10,18 +10,18 @@ const BOOKING_URL =
   "https://booksy.com/en-us/1716033_fade-the-grain-barbershop_hair-salon_31201_arcanum";
 
 export const metadata: Metadata = {
-  title: "Services & Pricing | Fade The Grain Barbershop — Arcanum, OH",
+  title: "Services & Pricing | Fade The Grain Barbershop - Arcanum, OH",
   description:
     "Haircuts from $20, beard trims, straight razor shaves & more at Fade The Grain in Arcanum, OH. Veteran and senior discounts available.",
   openGraph: {
-    title: "Services & Pricing | Fade The Grain Barbershop — Arcanum, OH",
+    title: "Services & Pricing | Fade The Grain Barbershop - Arcanum, OH",
     description:
       "Haircuts from $20, beard trims, straight razor shaves & more at Fade The Grain in Arcanum, OH. Veteran and senior discounts available.",
     url: "https://fadethegrainbarbershop.com/services",
     images: [{ url: "/preview-banner.png" }],
   },
   twitter: {
-    title: "Services & Pricing | Fade The Grain Barbershop — Arcanum, OH",
+    title: "Services & Pricing | Fade The Grain Barbershop - Arcanum, OH",
     description:
       "Haircuts from $20, beard trims, straight razor shaves & more at Fade The Grain in Arcanum, OH. Veteran and senior discounts available.",
   },
@@ -164,7 +164,7 @@ export default function ServicesPage() {
                   <div className="relative aspect-[3/4] w-full">
                     <Image
                       src={barber.image}
-                      alt={`${barber.name} — Barber at Fade The Grain`}
+                      alt={`${barber.name} - Barber at Fade The Grain`}
                       fill
                       className="object-cover"
                     />

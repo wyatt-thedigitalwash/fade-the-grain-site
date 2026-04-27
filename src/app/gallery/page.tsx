@@ -6,18 +6,18 @@ import { BreadcrumbSchema } from "@/components/Schema";
 import CTABanner from "@/components/CTABanner";
 
 export const metadata: Metadata = {
-  title: "Gallery | Fade The Grain Barbershop — Arcanum, OH",
+  title: "Gallery | Fade The Grain Barbershop - Arcanum, OH",
   description:
     "See our barbershop, our work, and the Fade The Grain experience in Arcanum, OH. Fresh cuts, clean fades, and shop vibes.",
   openGraph: {
-    title: "Gallery | Fade The Grain Barbershop — Arcanum, OH",
+    title: "Gallery | Fade The Grain Barbershop - Arcanum, OH",
     description:
       "See our barbershop, our work, and the Fade The Grain experience in Arcanum, OH. Fresh cuts, clean fades, and shop vibes.",
     url: "https://fadethegrainbarbershop.com/gallery",
     images: [{ url: "/preview-banner.png" }],
   },
   twitter: {
-    title: "Gallery | Fade The Grain Barbershop — Arcanum, OH",
+    title: "Gallery | Fade The Grain Barbershop - Arcanum, OH",
     description:
       "See our barbershop, our work, and the Fade The Grain experience in Arcanum, OH. Fresh cuts, clean fades, and shop vibes.",
   },

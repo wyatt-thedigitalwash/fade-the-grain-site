@@ -102,7 +102,7 @@ export default function Navbar() {
       className={`fixed top-0 z-50 w-full transition-[background-color,box-shadow] duration-300 ease-out ${navBg}`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link href="/" aria-label="Fade The Grain Barbershop — Home" className="block">
+        <Link href="/" aria-label="Fade The Grain Barbershop - Home" className="block">
           <Image
             src="/branding/fade-the-grain-logo-gold.webp"
             alt="Fade The Grain Barbershop logo"
@@ -181,7 +181,7 @@ export default function Navbar() {
           <Link
             href="/"
             onClick={() => setMobileOpen(false)}
-            aria-label="Fade The Grain Barbershop — Home"
+            aria-label="Fade The Grain Barbershop - Home"
             className="block"
           >
             <Image

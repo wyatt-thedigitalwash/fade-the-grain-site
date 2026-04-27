@@ -10,20 +10,20 @@ const BOOKING_URL =
   "https://booksy.com/en-us/1716033_fade-the-grain-barbershop_hair-salon_31201_arcanum";
 
 export const metadata: Metadata = {
-  title: "About Us | Fade The Grain Barbershop — Arcanum, OH",
+  title: "About Us | Fade The Grain Barbershop - Arcanum, OH",
   description:
-    "Learn about Fade The Grain — a veteran-owned barbershop in Arcanum, OH. Meet our barbers and discover our story.",
+    "Learn about Fade The Grain, a veteran-owned barbershop in Arcanum, OH. Meet our barbers and discover our story.",
   openGraph: {
-    title: "About Us | Fade The Grain Barbershop — Arcanum, OH",
+    title: "About Us | Fade The Grain Barbershop - Arcanum, OH",
     description:
-      "Learn about Fade The Grain — a veteran-owned barbershop in Arcanum, OH. Meet our barbers and discover our story.",
+      "Learn about Fade The Grain, a veteran-owned barbershop in Arcanum, OH. Meet our barbers and discover our story.",
     url: "https://fadethegrainbarbershop.com/about",
     images: [{ url: "/preview-banner.png" }],
   },
   twitter: {
-    title: "About Us | Fade The Grain Barbershop — Arcanum, OH",
+    title: "About Us | Fade The Grain Barbershop - Arcanum, OH",
     description:
-      "Learn about Fade The Grain — a veteran-owned barbershop in Arcanum, OH. Meet our barbers and discover our story.",
+      "Learn about Fade The Grain, a veteran-owned barbershop in Arcanum, OH. Meet our barbers and discover our story.",
   },
   alternates: { canonical: "https://fadethegrainbarbershop.com/about" },
 };
@@ -83,7 +83,7 @@ export default function AboutPage() {
               </p>
               <p className="mt-4 leading-relaxed text-text-dark/80">
                 With Aaron, Preston, and Lauren behind the chair, we&apos;ve built
-                a team that shares the same values — precision, respect, and a
+                a team that shares the same values: precision, respect, and a
                 genuine love for what we do. Whether it&apos;s your first visit or
                 your fiftieth, you&apos;re family here.
               </p>
@@ -107,7 +107,7 @@ export default function AboutPage() {
                   <div className="relative aspect-[3/4] w-full">
                     <Image
                       src={barber.image}
-                      alt={`${barber.name} — Barber at Fade The Grain`}
+                      alt={`${barber.name} - Barber at Fade The Grain`}
                       fill
                       className="object-cover"
                     />

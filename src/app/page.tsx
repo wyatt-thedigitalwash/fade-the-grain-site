@@ -20,7 +20,7 @@ const services = [
     icon: User,
     name: "Haircut & Beard Trim",
     price: "$35",
-    description: "The full package — fresh cut and clean lines.",
+    description: "The full package: fresh cut and clean lines.",
   },
   {
     icon: SprayCan,
@@ -213,7 +213,7 @@ export default function Home() {
                   <div className="relative aspect-[3/4] w-full">
                     <Image
                       src={barber.image}
-                      alt={`${barber.name} — Barber at Fade The Grain`}
+                      alt={`${barber.name} - Barber at Fade The Grain`}
                       fill
                       className="object-cover"
                     />
@@ -273,13 +273,13 @@ export default function Home() {
               <Divider variant="ornament" className="justify-start py-2" />
               <p className="mt-6 leading-relaxed text-text-dark/80">
                 Fade The Grain is a veteran-owned barbershop rooted in the heart
-                of Arcanum, Ohio. With four skilled barbers on staff — Aaron,
-                Preston, Lauren, and Barney — we combine modern techniques with
+                of Arcanum, Ohio. With four skilled barbers on staff (Aaron,
+                Preston, Lauren, and Barney), we combine modern techniques with
                 timeless tradition to deliver cuts you can be proud of.
               </p>
               <p className="mt-4 leading-relaxed text-text-dark/80">
                 This isn&apos;t just a place to get a haircut. It&apos;s your
-                neighborhood shop — where small-town pride meets precision
+                neighborhood shop where small-town pride meets precision
                 craftsmanship.
               </p>
               <Link

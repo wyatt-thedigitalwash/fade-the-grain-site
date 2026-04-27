@@ -18,9 +18,9 @@ export default function Footer() {
   return (
     <footer className="border-t border-accent bg-primary">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-3">
-        {/* Column 1 — Brand */}
+        {/* Column 1 - Brand */}
         <div>
-          <Link href="/" aria-label="Fade The Grain Barbershop — Home" className="block">
+          <Link href="/" aria-label="Fade The Grain Barbershop - Home" className="block">
             <Image
               src="/branding/fade-the-grain-logo-white.webp"
               alt="Fade The Grain Barbershop logo"
@@ -38,7 +38,7 @@ export default function Footer() {
           </span>
         </div>
 
-        {/* Column 2 — Hours */}
+        {/* Column 2 - Hours */}
         <div>
           <h3 className="font-heading text-lg font-semibold uppercase tracking-wide text-text-primary">
             Hours
@@ -53,7 +53,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Column 3 — Contact */}
+        {/* Column 3 - Contact */}
         <div>
           <h3 className="font-heading text-lg font-semibold uppercase tracking-wide text-text-primary">
             Contact
