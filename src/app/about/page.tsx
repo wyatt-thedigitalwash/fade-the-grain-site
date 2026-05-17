@@ -32,7 +32,7 @@ const barbers = [
   { name: "Aaron", image: "/assets/barber-giving-boy-haircut.webp", walkIn: false },
   { name: "Preston", image: "/assets/precision-clipper-cut-action.webp", walkIn: false },
   { name: "Lauren", image: "/assets/lauren-barber.webp", walkIn: false },
-  { name: "Barney", image: "/assets/barbers-at-work-full-shop.webp", walkIn: true },
+  { name: "Alora", image: "/assets/alora-fade-the-grain.webp", walkIn: false },
 ];
 
 const values = [
@@ -82,7 +82,7 @@ export default function AboutPage() {
                 take pride in our craft because we take pride in everything we do.
               </p>
               <p className="mt-4 leading-relaxed text-text-dark/80">
-                With Aaron, Preston, and Lauren behind the chair, we&apos;ve built
+                With Aaron, Preston, Lauren, and Alora behind the chair, we&apos;ve built
                 a team that shares the same values: precision, respect, and a
                 genuine love for what we do. Whether it&apos;s your first visit or
                 your fiftieth, you&apos;re family here.

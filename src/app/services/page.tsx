@@ -53,7 +53,7 @@ const barbers = [
   { name: "Aaron", image: "/assets/barber-giving-boy-haircut.webp", walkIn: false },
   { name: "Preston", image: "/assets/precision-clipper-cut-action.webp", walkIn: false },
   { name: "Lauren", image: "/assets/lauren-barber.webp", walkIn: false },
-  { name: "Barney", image: "/assets/barbers-at-work-full-shop.webp", walkIn: true },
+  { name: "Alora", image: "/assets/alora-fade-the-grain.webp", walkIn: false },
 ];
 
 function ServiceRow({ service }: { service: Service }) {

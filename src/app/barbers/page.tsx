@@ -11,18 +11,18 @@ const BOOKING_URL =
 export const metadata: Metadata = {
   title: "Our Barbers | Fade The Grain Barbershop - Arcanum, OH",
   description:
-    "Meet the barbers at Fade The Grain in Arcanum, OH. Aaron, Preston, Lauren, and Barney. Book online or walk in today.",
+    "Meet the barbers at Fade The Grain in Arcanum, OH. Aaron, Preston, Lauren, and Alora. Book online or walk in today.",
   openGraph: {
     title: "Our Barbers | Fade The Grain Barbershop - Arcanum, OH",
     description:
-      "Meet the barbers at Fade The Grain in Arcanum, OH. Aaron, Preston, Lauren, and Barney. Book online or walk in today.",
+      "Meet the barbers at Fade The Grain in Arcanum, OH. Aaron, Preston, Lauren, and Alora. Book online or walk in today.",
     url: "https://fadethegrainbarbershop.com/barbers",
     images: [{ url: "/preview-banner.png" }],
   },
   twitter: {
     title: "Our Barbers | Fade The Grain Barbershop - Arcanum, OH",
     description:
-      "Meet the barbers at Fade The Grain in Arcanum, OH. Aaron, Preston, Lauren, and Barney. Book online or walk in today.",
+      "Meet the barbers at Fade The Grain in Arcanum, OH. Aaron, Preston, Lauren, and Alora. Book online or walk in today.",
   },
   alternates: { canonical: "https://fadethegrainbarbershop.com/barbers" },
 };
@@ -53,13 +53,12 @@ const barbers = [
       "Lauren brings a fresh perspective and steady hand to the chair. From traditional cuts to modern styles, she's dedicated to making every client look and feel their best.",
   },
   {
-    name: "Barney",
-    role: "Master Barber",
-    image: "/assets/barbers-at-work-full-shop.webp",
-    walkIn: true,
+    name: "Alora",
+    role: "Barber",
+    image: "/assets/alora-fade-the-grain.webp",
+    walkIn: false,
     description:
-      "Barney is a true southern gentleman, bringing over 30 years of barbering experience to the chair. With a steady hand and a storyteller's charm, he delivers more than just a haircut, he delivers an experience. If you've got time for a quality cut and maybe a good story or two, walk in and have a seat. Barney will take care of you.",
-    hours: "Mon 12–5 · Wed 9–6 · Fri 9–6",
+      "Alora is a detail-oriented barber who takes pride in delivering quality cuts with consistency and care. Her passion for the craft shows through in every appointment, from classic styles to modern fades. Being raised around the values behind Fade the Grain inspired her dedication to hard work, community, and creating an atmosphere where clients feel right at home.",
   },
 ];
 
@@ -105,32 +104,17 @@ export default function BarbersPage() {
                     {barber.description}
                   </p>
                   <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-                    {barber.walkIn ? (
-                      <>
-                        <span className="rounded border border-accent px-5 py-3 text-center font-heading text-sm font-semibold uppercase tracking-wide text-accent">
-                          Walk-In Only
-                        </span>
-                        {"hours" in barber && (
-                          <p className="text-sm text-text-dark/75">
-                            {barber.hours}
-                          </p>
-                        )}
-                      </>
-                    ) : (
-                      <>
-                        <a
-                          href={BOOKING_URL}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="rounded bg-accent px-6 py-3 text-center font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover"
-                        >
-                          Book with {barber.name}<span className="sr-only"> (opens in new tab)</span>
-                        </a>
-                        <p className="text-sm text-text-dark/75">
-                          $20 &middot; 30 min
-                        </p>
-                      </>
-                    )}
+                    <a
+                      href={BOOKING_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded bg-accent px-6 py-3 text-center font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover"
+                    >
+                      Book with {barber.name}<span className="sr-only"> (opens in new tab)</span>
+                    </a>
+                    <p className="text-sm text-text-dark/75">
+                      $20 &middot; 30 min
+                    </p>
                   </div>
                 </div>
               </div>
@@ -150,42 +134,25 @@ export default function BarbersPage() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {barbers.map((barber, i) => (
               <FadeIn key={barber.name} delay={i * 100}>
-                {barber.walkIn ? (
-                  <div className="rounded-lg bg-secondary p-8 text-center">
-                    <h3 className="font-heading text-xl font-semibold uppercase text-text-primary">
-                      {barber.name}
-                    </h3>
-                    <p className="mt-1 text-sm text-text-primary/70">
-                      {barber.role}
-                    </p>
-                    <p className="mt-1 text-sm text-text-primary/70">
-                      {"hours" in barber ? barber.hours : "Walk-In"}
-                    </p>
-                    <span className="mt-4 inline-block rounded border border-accent px-6 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-accent">
-                      Walk-In Only
-                    </span>
-                  </div>
-                ) : (
-                  <a
-                    href={BOOKING_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block rounded-lg bg-secondary p-8 text-center transition-colors duration-300 hover:bg-secondary/80"
-                  >
-                    <h3 className="font-heading text-xl font-semibold uppercase text-text-primary">
-                      {barber.name}
-                    </h3>
-                    <p className="mt-1 text-sm text-text-primary/70">
-                      {barber.role}
-                    </p>
-                    <p className="mt-1 text-sm text-text-primary/70">
-                      $20 &middot; 30 min
-                    </p>
-                    <span className="mt-4 inline-block rounded bg-accent px-6 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover">
-                      Book Now<span className="sr-only"> (opens in new tab)</span>
-                    </span>
-                  </a>
-                )}
+                <a
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block rounded-lg bg-secondary p-8 text-center transition-colors duration-300 hover:bg-secondary/80"
+                >
+                  <h3 className="font-heading text-xl font-semibold uppercase text-text-primary">
+                    {barber.name}
+                  </h3>
+                  <p className="mt-1 text-sm text-text-primary/70">
+                    {barber.role}
+                  </p>
+                  <p className="mt-1 text-sm text-text-primary/70">
+                    $20 &middot; 30 min
+                  </p>
+                  <span className="mt-4 inline-block rounded bg-accent px-6 py-2 font-heading text-sm font-semibold uppercase tracking-wide text-primary transition-colors duration-300 hover:bg-accent-hover">
+                    Book Now<span className="sr-only"> (opens in new tab)</span>
+                  </span>
+                </a>
               </FadeIn>
             ))}
           </div>

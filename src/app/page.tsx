@@ -79,11 +79,6 @@ const testimonials = [
       "Hands down the best barber shop I have ever been to. The guys there were friendly and professional. I'll definitely be going back.",
   },
   {
-    name: "David Bryson",
-    quote:
-      "Walked in for a beard trim without an appointment. Nice waiting area and good barbershop atmosphere. Barney did a phenomenal job trimming and shaping my beard. Will definitely be a repeat customer.",
-  },
-  {
     name: "Benjamin Thompson",
     quote:
       "Preston did a fantastic job with my haircut very friendly I will definitely be back if you're looking for a place to get your haircut this is definitely a great place to go.",
@@ -94,7 +89,7 @@ const barbers = [
   { name: "Aaron", image: "/assets/barber-giving-boy-haircut.webp", walkIn: false },
   { name: "Preston", image: "/assets/precision-clipper-cut-action.webp", walkIn: false },
   { name: "Lauren", image: "/assets/lauren-barber.webp", walkIn: false },
-  { name: "Barney", image: "/assets/barbers-at-work-full-shop.webp", walkIn: true },
+  { name: "Alora", image: "/assets/alora-fade-the-grain.webp", walkIn: false },
 ];
 
 const showcaseImages = [
@@ -274,7 +269,7 @@ export default function Home() {
               <p className="mt-6 leading-relaxed text-text-dark/80">
                 Fade The Grain is a veteran-owned barbershop rooted in the heart
                 of Arcanum, Ohio. With four skilled barbers on staff (Aaron,
-                Preston, Lauren, and Barney), we combine modern techniques with
+                Preston, Lauren, and Alora), we combine modern techniques with
                 timeless tradition to deliver cuts you can be proud of.
               </p>
               <p className="mt-4 leading-relaxed text-text-dark/80">
