@@ -33,6 +33,7 @@ const barbers = [
   { name: "Preston", image: "/assets/precision-clipper-cut-action.webp", walkIn: false },
   { name: "Lauren", image: "/assets/lauren-barber.webp", walkIn: false },
   { name: "Alora", image: "/assets/alora-fade-the-grain.webp", walkIn: false },
+  { name: "Cody", image: "/assets/cody-barber-fade-the-grain.webp", walkIn: false },
 ];
 
 const values = [
@@ -100,7 +101,7 @@ export default function AboutPage() {
             </h2>
             <Divider variant="ornament" />
           </FadeIn>
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
             {barbers.map((barber, i) => (
               <FadeIn key={barber.name} delay={i * 100}>
                 <div className="overflow-hidden rounded-lg bg-secondary text-center">

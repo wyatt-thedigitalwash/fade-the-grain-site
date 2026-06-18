@@ -11,18 +11,18 @@ const BOOKING_URL =
 export const metadata: Metadata = {
   title: "Our Barbers | Fade The Grain Barbershop - Arcanum, OH",
   description:
-    "Meet the barbers at Fade The Grain in Arcanum, OH. Aaron, Preston, Lauren, and Alora. Book online or walk in today.",
+    "Meet the barbers at Fade The Grain in Arcanum, OH. Aaron, Preston, Lauren, Alora, and Cody. Book online or walk in today.",
   openGraph: {
     title: "Our Barbers | Fade The Grain Barbershop - Arcanum, OH",
     description:
-      "Meet the barbers at Fade The Grain in Arcanum, OH. Aaron, Preston, Lauren, and Alora. Book online or walk in today.",
+      "Meet the barbers at Fade The Grain in Arcanum, OH. Aaron, Preston, Lauren, Alora, and Cody. Book online or walk in today.",
     url: "https://fadethegrainbarbershop.com/barbers",
     images: [{ url: "/preview-banner.png" }],
   },
   twitter: {
     title: "Our Barbers | Fade The Grain Barbershop - Arcanum, OH",
     description:
-      "Meet the barbers at Fade The Grain in Arcanum, OH. Aaron, Preston, Lauren, and Alora. Book online or walk in today.",
+      "Meet the barbers at Fade The Grain in Arcanum, OH. Aaron, Preston, Lauren, Alora, and Cody. Book online or walk in today.",
   },
   alternates: { canonical: "https://fadethegrainbarbershop.com/barbers" },
 };
@@ -60,6 +60,14 @@ const barbers = [
     description:
       "Alora is a detail-oriented barber who takes pride in delivering quality cuts with consistency and care. Her passion for the craft shows through in every appointment, from classic styles to modern fades. Being raised around the values behind Fade the Grain inspired her dedication to hard work, community, and creating an atmosphere where clients feel right at home.",
   },
+  {
+    name: "Cody",
+    role: "Barber",
+    image: "/assets/cody-barber-fade-the-grain.webp",
+    walkIn: false,
+    description:
+      "Cody is a local barber from nearby Greenville, Ohio, who brings a passion for the craft and a strong attention to detail to every haircut. Known for his ability to deliver clean, crisp fades as well as all other modern styles, he takes pride in helping clients look their best. Cody is dedicated to providing a haircut you'll be proud to wear. As a member of the Fade the Grain team, Cody combines small-town values, great conversation, and quality workmanship to ensure every client leaves feeling confident and refreshed.",
+  },
 ];
 
 export default function BarbersPage() {
@@ -73,7 +81,7 @@ export default function BarbersPage() {
           </h1>
           <Divider variant="ornament" />
           <p className="text-lg text-text-primary/80">
-            Four barbers. One standard: precision.
+            Five barbers. One standard: precision.
           </p>
         </div>
       </section>
@@ -131,14 +139,14 @@ export default function BarbersPage() {
             </h2>
             <Divider variant="stars" />
           </FadeIn>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
             {barbers.map((barber, i) => (
               <FadeIn key={barber.name} delay={i * 100}>
                 <a
                   href={BOOKING_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block rounded-lg bg-secondary p-8 text-center transition-colors duration-300 hover:bg-secondary/80"
+                  className="block rounded-lg bg-secondary p-8 text-center transition-colors duration-300 hover:bg-secondary/80 last:sm:col-span-2 last:lg:col-span-1"
                 >
                   <h3 className="font-heading text-xl font-semibold uppercase text-text-primary">
                     {barber.name}
